@@ -560,3 +560,64 @@ export function SourcesArt({ className = "" }: P) {
     </svg>
   );
 }
+
+/* ---------- 축복 vs 재앙: 갈림길 ---------- */
+export function BlessingOrDisaster({ className = "" }: P) {
+  return (
+    <svg viewBox="0 0 460 240" className={className} aria-hidden>
+      {/* 축복: 맑음 */}
+      <rect x="8" y="20" width="200" height="200" rx="20" fill="#e0f2fe" />
+      <circle cx="62" cy="78" r="24" fill="#fbbf24" />
+      {Array.from({ length: 8 }).map((_, i) => {
+        const a = (i * Math.PI) / 4;
+        return <line key={i} x1={r(62 + Math.cos(a) * 30)} y1={r(78 + Math.sin(a) * 30)} x2={r(62 + Math.cos(a) * 38)} y2={r(78 + Math.sin(a) * 38)} stroke="#fbbf24" strokeWidth={4} strokeLinecap="round" />;
+      })}
+      {[
+        ["#fb7185", 46],
+        ["#fbbf24", 38],
+        ["#34d399", 30],
+      ].map(([c, rr], i) => (
+        <path key={i} d={`M${150 - (rr as number)} 150 a${rr} ${rr} 0 0 1 ${(rr as number) * 2} 0`} stroke={c as string} strokeWidth={6} fill="none" strokeLinecap="round" />
+      ))}
+      <text x="108" y="206" textAnchor="middle" fontSize="18" fontWeight="900" fill="#0284c7">축복</text>
+      {/* 재앙: 폭풍 */}
+      <rect x="252" y="20" width="200" height="200" rx="20" fill="#e2e8f0" />
+      <path d="M300 72 a18 18 0 0 1 6 -34 a24 24 0 0 1 46 5 a16 16 0 0 1 -3 29 Z" fill="#94a3b8" />
+      <path d="M346 80 L333 102 H347 L339 126 L363 94 H350 L357 80 Z" fill="#fbbf24" stroke="#f59e0b" strokeWidth={2} strokeLinejoin="round" />
+      {Array.from({ length: 5 }).map((_, i) => (
+        <line key={i} x1={300 + i * 16} y1={106 + (i % 2) * 6} x2={296 + i * 16} y2={120 + (i % 2) * 6} stroke="#7dd3fc" strokeWidth={3} strokeLinecap="round" />
+      ))}
+      <text x="352" y="206" textAnchor="middle" fontSize="18" fontWeight="900" fill="#64748b">재앙</text>
+      {/* 가운데 사람 + 갈림 화살표 */}
+      <path d="M214 150 q-28 -4 -52 -28" stroke="#0284c7" strokeWidth={3} fill="none" strokeLinecap="round" strokeDasharray="2 7" />
+      <path d="M246 150 q28 -4 52 -28" stroke="#94a3b8" strokeWidth={3} fill="none" strokeLinecap="round" strokeDasharray="2 7" />
+      <circle cx="230" cy="150" r="16" fill="#0ea5e9" />
+      <rect x="214" y="170" width="32" height="34" rx="13" fill="#0ea5e9" />
+    </svg>
+  );
+}
+
+/* ---------- 사무실에 갇힌 사람 + 열린 문(기회) ---------- */
+export function StuckAtDesk({ className = "" }: P) {
+  return (
+    <svg viewBox="0 0 320 210" className={className} aria-hidden>
+      {/* 사무실 박스 */}
+      <rect x="18" y="26" width="196" height="160" rx="16" fill="#eef2f6" stroke="#cbd5e1" strokeWidth={3} />
+      {/* 야근 시계 */}
+      <circle cx="58" cy="58" r="13" fill="#fff" stroke="#94a3b8" strokeWidth={3} />
+      <line x1="58" y1="58" x2="58" y2="50" stroke="#475569" strokeWidth={2.5} strokeLinecap="round" />
+      <line x1="58" y1="58" x2="64" y2="58" stroke="#475569" strokeWidth={2.5} strokeLinecap="round" />
+      {/* 책상 + 사람 */}
+      <circle cx="116" cy="112" r="19" fill="#0ea5e9" />
+      <rect x="96" y="133" width="40" height="26" rx="10" fill="#0ea5e9" />
+      <rect x="70" y="156" width="118" height="12" rx="4" fill="#94a3b8" />
+      <rect x="100" y="140" width="32" height="17" rx="3" fill="#334155" />
+      {/* 열린 문 (기회) */}
+      <rect x="236" y="54" width="66" height="132" rx="8" fill="#fde68a" stroke="#fbbf24" strokeWidth={3} />
+      <circle cx="290" cy="124" r="4" fill="#f59e0b" />
+      {[0, 1, 2].map((i) => (
+        <line key={i} x1={246} y1={r(86 + i * 22)} x2={224} y2={r(80 + i * 22)} stroke="#fbbf24" strokeWidth={3} strokeLinecap="round" />
+      ))}
+    </svg>
+  );
+}

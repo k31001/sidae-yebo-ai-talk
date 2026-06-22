@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "시대예보 — 취업 안 되는 시대, 이력서보다 중요한 한 가지",
+  title: "시대예보 — 직장도 직업도 없어질 때, 꼭 남겨야 하는 것",
   description:
-    "송길영 『시대예보』 기반 · AI 전선이 바꾸는 일의 미래. OKR Party 세미나 발표 자료.",
+    "송길영 『시대예보』 기반 · AI 전선이 바꾸는 일의 미래(경량문명). 직장인을 위한 OKR Party 세미나 발표 자료.",
 };
 
 export const viewport: Viewport = {
