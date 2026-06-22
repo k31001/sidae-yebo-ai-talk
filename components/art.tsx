@@ -268,34 +268,38 @@ export function IqGauge({ className = "" }: P) {
   );
 }
 
-/* ---------- 7. 인당 시총: 적은 인원 → 큰 가치 ---------- */
+/* ---------- 7. 인당 시가총액: 적은 인원 → 거대한 가치 ---------- */
 export function PerCapitaBars({ className = "" }: P) {
   const data = [
-    { label: "텔레그램", people: 30, h: 150, c: "#0ea5e9" },
-    { label: "미드저니", people: 40, h: 132, c: "#10b981" },
-    { label: "커서 AI", people: 20, h: 168, c: "#8b5cf6" },
-    { label: "1인 기업", people: 1, h: 190, c: "#f59e0b" },
+    { label: "WhatsApp", people: "직원 55명", per: "≈ 4,500억", deal: "인수 약 25조", h: 178, c: "#0ea5e9" },
+    { label: "Instagram", people: "직원 13명", per: "≈ 1,000억", deal: "인수 약 1.3조", h: 120, c: "#10b981" },
+    { label: "Mojang", people: "직원 40명", per: "≈ 800억", deal: "인수 약 3.3조", h: 102, c: "#8b5cf6" },
   ];
   return (
-    <svg viewBox="0 0 480 280" className={className} aria-hidden>
-      <line x1="30" y1="230" x2="450" y2="230" stroke="#cbd5e1" strokeWidth={3} />
+    <svg viewBox="0 0 500 300" className={className} aria-hidden>
+      <text x="26" y="22" fontSize="13" fontWeight="800" fill="#94a3b8">
+        인당 시가총액 (1명이 만든 가치, 원)
+      </text>
+      <line x1="26" y1="236" x2="474" y2="236" stroke="#cbd5e1" strokeWidth={3} />
       {data.map((d, i) => {
-        const x = 56 + i * 104;
+        const x = 56 + i * 138;
         return (
           <g key={d.label}>
-            <rect x={x} y={230 - d.h} width={62} height={d.h} rx={10} fill={d.c} opacity={0.9} />
-            <text x={x + 31} y={230 - d.h - 10} textAnchor="middle" fontSize="15" fontWeight="800" fill="#0f172a">
-              💰
+            <rect x={x} y={236 - d.h} width={96} height={d.h} rx={12} fill={d.c} opacity={0.92} />
+            <text x={x + 48} y={236 - d.h - 26} textAnchor="middle" fontSize="11" fontWeight="800" fill="#94a3b8">
+              인당
             </text>
-            {/* 인원 점 */}
-            {Array.from({ length: Math.min(d.people, 5) }).map((_, k) => (
-              <circle key={k} cx={x + 12 + (k % 5) * 10} cy={246} r={3.4} fill={d.c} />
-            ))}
-            <text x={x + 31} y={262} textAnchor="middle" fontSize="13" fontWeight="800" fill="#334155">
+            <text x={x + 48} y={236 - d.h - 8} textAnchor="middle" fontSize="18" fontWeight="900" fill={d.c}>
+              {d.per}
+            </text>
+            <text x={x + 48} y={258} textAnchor="middle" fontSize="16" fontWeight="900" fill="#0f172a">
               {d.label}
             </text>
-            <text x={x + 31} y={278} textAnchor="middle" fontSize="12" fontWeight="700" fill="#94a3b8">
-              {d.people}명
+            <text x={x + 48} y={276} textAnchor="middle" fontSize="12" fontWeight="700" fill="#475569">
+              {d.people}
+            </text>
+            <text x={x + 48} y={292} textAnchor="middle" fontSize="11" fontWeight="600" fill="#94a3b8">
+              {d.deal}
             </text>
           </g>
         );
@@ -618,6 +622,87 @@ export function StuckAtDesk({ className = "" }: P) {
       {[0, 1, 2].map((i) => (
         <line key={i} x1={246} y1={r(86 + i * 22)} x2={224} y2={r(80 + i * 22)} stroke="#fbbf24" strokeWidth={3} strokeLinecap="round" />
       ))}
+    </svg>
+  );
+}
+
+/* ---------- 경량문명의 등장 흐름 (중량 → ChatGPT → 경량) ---------- */
+export function LightCivFlow({ className = "" }: P) {
+  return (
+    <svg viewBox="0 0 580 190" className={className} aria-hidden>
+      {/* 중량문명: 공장 */}
+      <rect x="10" y="38" width="156" height="116" rx="16" fill="#e2e8f0" />
+      <rect x="50" y="80" width="78" height="52" rx="6" fill="#94a3b8" />
+      <rect x="62" y="60" width="15" height="24" fill="#64748b" />
+      <rect x="88" y="48" width="15" height="36" fill="#64748b" />
+      <circle cx="72" cy="54" r="6" fill="#cbd5e1" />
+      <circle cx="98" cy="40" r="7" fill="#cbd5e1" />
+      <text x="88" y="146" textAnchor="middle" fontSize="15" fontWeight="900" fill="#475569">중량문명</text>
+      {/* 화살표 1 */}
+      <line x1="176" y1="96" x2="232" y2="96" stroke="#0ea5e9" strokeWidth={5} strokeLinecap="round" />
+      <path d="M228 87 l14 9 l-14 9 Z" fill="#0ea5e9" />
+      {/* 트리거: 번개 + 날짜 */}
+      <g transform="translate(256 56)">
+        <path d="M30 0 L14 42 H31 L21 78 L54 30 H35 L47 0 Z" fill="#fbbf24" stroke="#f59e0b" strokeWidth={2} strokeLinejoin="round" />
+      </g>
+      <text x="288" y="150" textAnchor="middle" fontSize="12" fontWeight="900" fill="#f59e0b">2022.11.30</text>
+      <text x="288" y="166" textAnchor="middle" fontSize="11" fontWeight="700" fill="#94a3b8">지능의 범용화</text>
+      {/* 화살표 2 */}
+      <line x1="348" y1="96" x2="404" y2="96" stroke="#0ea5e9" strokeWidth={5} strokeLinecap="round" />
+      <path d="M400 87 l14 9 l-14 9 Z" fill="#0ea5e9" />
+      {/* 경량문명: 개인 + AI */}
+      <rect x="414" y="38" width="156" height="116" rx="16" fill="#e0f2fe" />
+      <circle cx="470" cy="86" r="17" fill="#0ea5e9" />
+      <rect x="455" y="107" width="30" height="26" rx="11" fill="#0ea5e9" />
+      <g transform="translate(500 70)">
+        <rect width="32" height="25" rx="7" fill="#8b5cf6" />
+        <circle cx="10" cy="12" r="3.2" fill="#fff" />
+        <circle cx="22" cy="12" r="3.2" fill="#fff" />
+      </g>
+      <text x="492" y="146" textAnchor="middle" fontSize="15" fontWeight="900" fill="#0369a1">경량문명</text>
+    </svg>
+  );
+}
+
+/* ---------- 부장 → 차장 → 대리 (오버헤드) vs 1인 + AI ---------- */
+export function OrgRelay({ className = "" }: P) {
+  const fig = (x: number, name: string) => (
+    <g key={name} transform={`translate(${x} 52)`}>
+      <circle cx="0" cy="0" r="15" fill="#94a3b8" />
+      <rect x="-14" y="20" width="28" height="26" rx="11" fill="#94a3b8" />
+      <text x="0" y="64" textAnchor="middle" fontSize="14" fontWeight="900" fill="#475569">{name}</text>
+    </g>
+  );
+  return (
+    <svg viewBox="0 0 580 215" className={className} aria-hidden>
+      {/* 보고: 역방향 긴 곡선 */}
+      <path d="M428 40 q-140 -46 -312 0" stroke="#fb7185" strokeWidth={3} fill="none" strokeLinecap="round" strokeDasharray="2 7" />
+      <path d="M124 30 l-13 9 l3 -15 Z" fill="#fb7185" />
+      <text x="272" y="8" textAnchor="middle" fontSize="12" fontWeight="900" fill="#fb7185">↩ 보고 · 결재</text>
+      {/* 전방 화살표 */}
+      <g stroke="#cbd5e1" strokeWidth={4} strokeLinecap="round">
+        <line x1="140" y1="52" x2="246" y2="52" />
+        <line x1="300" y1="52" x2="406" y2="52" />
+      </g>
+      <text x="193" y="44" textAnchor="middle" fontSize="12" fontWeight="800" fill="#94a3b8">지시</text>
+      <text x="353" y="44" textAnchor="middle" fontSize="12" fontWeight="800" fill="#94a3b8">배분</text>
+      {fig(116, "부장")}
+      {fig(272, "차장")}
+      {fig(428, "대리")}
+      <text x="500" y="56" fontSize="13" fontWeight="900" fill="#fb7185">= 오버헤드</text>
+      {/* 구분선 */}
+      <line x1="40" y1="140" x2="540" y2="140" stroke="#e2e8f0" strokeWidth={2} strokeDasharray="4 6" />
+      {/* 1인 + AI */}
+      <g transform="translate(206 158)">
+        <circle cx="0" cy="0" r="16" fill="#0ea5e9" />
+        <rect x="-15" y="21" width="30" height="28" rx="12" fill="#0ea5e9" />
+        <g transform="translate(20 -15)">
+          <rect width="30" height="23" rx="7" fill="#8b5cf6" />
+          <circle cx="9" cy="11" r="3" fill="#fff" />
+          <circle cx="21" cy="11" r="3" fill="#fff" />
+        </g>
+      </g>
+      <text x="292" y="186" fontSize="16" fontWeight="900" fill="#0369a1">1인 + AI = 통째로 완결</text>
     </svg>
   );
 }
