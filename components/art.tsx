@@ -706,3 +706,63 @@ export function OrgRelay({ className = "" }: P) {
     </svg>
   );
 }
+
+/* ---------- 거대 조직의 몰락 vs 작고 빠른 부상 (大馬必死) ---------- */
+export function GiantFalls({ className = "" }: P) {
+  return (
+    <svg viewBox="0 0 460 220" className={className} aria-hidden>
+      <line x1="20" y1="184" x2="440" y2="184" stroke="#cbd5e1" strokeWidth={3} />
+      {/* 거대 조직: 기울어 균열 가는 빌딩 */}
+      <g transform="rotate(-11 150 150)">
+        <rect x="86" y="58" width="128" height="126" rx="6" fill="#94a3b8" />
+        {Array.from({ length: 12 }).map((_, i) => (
+          <rect key={i} x={100 + (i % 3) * 36} y={72 + Math.floor(i / 3) * 28} width="22" height="18" rx="3" fill="#cbd5e1" />
+        ))}
+        <path d="M150 58 L139 98 L159 122 L145 162" stroke="#475569" strokeWidth={3} fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      </g>
+      <text x="150" y="208" textAnchor="middle" fontSize="14" fontWeight="900" fill="#64748b">거대 ▼</text>
+      {/* 작고 빠른: 로켓 상승 */}
+      <g transform="translate(326 56)">
+        <path d="M28 0 C45 15 45 46 28 66 C11 46 11 15 28 0 Z" fill="#0ea5e9" />
+        <circle cx="28" cy="26" r="8" fill="#e0f2fe" />
+        <path d="M14 58 L8 78 L24 66 Z" fill="#fbbf24" />
+        <path d="M42 58 L48 78 L32 66 Z" fill="#fbbf24" />
+        <path d="M24 66 L28 90 L32 66 Z" fill="#f59e0b" />
+      </g>
+      <text x="354" y="208" textAnchor="middle" fontSize="14" fontWeight="900" fill="#0284c7">작고 빠르게 ▲</text>
+    </svg>
+  );
+}
+
+/* ---------- 단속적 협력: 만나고 → 흩어지고 → 다시 만난다 ---------- */
+export function Cluster({ className = "" }: P) {
+  const dot = (x: number, y: number, c: string) => <circle cx={x} cy={y} r="9" fill={c} />;
+  return (
+    <svg viewBox="0 0 500 170" className={className} aria-hidden>
+      {/* 만나고 */}
+      <rect x="40" y="62" width="62" height="46" rx="10" fill="#e0f2fe" stroke="#7dd3fc" strokeWidth={2} />
+      <text x="71" y="90" textAnchor="middle" fontSize="11" fontWeight="800" fill="#0369a1">프로젝트</text>
+      {dot(47, 46, "#0ea5e9")}
+      {dot(95, 46, "#0ea5e9")}
+      {dot(47, 124, "#0ea5e9")}
+      {dot(95, 124, "#0ea5e9")}
+      <text x="71" y="152" textAnchor="middle" fontSize="13" fontWeight="900" fill="#334155">만나고</text>
+      <path d="M120 85 H164" stroke="#94a3b8" strokeWidth={3} strokeLinecap="round" strokeDasharray="2 6" />
+      {/* 흩어지고 */}
+      {dot(196, 52, "#cbd5e1")}
+      {dot(258, 42, "#cbd5e1")}
+      {dot(224, 122, "#cbd5e1")}
+      {dot(280, 110, "#cbd5e1")}
+      <text x="238" y="152" textAnchor="middle" fontSize="13" fontWeight="900" fill="#94a3b8">흩어지고</text>
+      <path d="M312 85 H356" stroke="#94a3b8" strokeWidth={3} strokeLinecap="round" strokeDasharray="2 6" />
+      {/* 다시 만난다 */}
+      <rect x="392" y="62" width="68" height="46" rx="10" fill="#fef3c7" stroke="#fbbf24" strokeWidth={2} />
+      <text x="426" y="90" textAnchor="middle" fontSize="11" fontWeight="800" fill="#b45309">새 프로젝트</text>
+      {dot(398, 46, "#f59e0b")}
+      {dot(454, 46, "#f59e0b")}
+      {dot(398, 124, "#f59e0b")}
+      {dot(454, 124, "#f59e0b")}
+      <text x="426" y="152" textAnchor="middle" fontSize="13" fontWeight="900" fill="#334155">다시 만난다</text>
+    </svg>
+  );
+}

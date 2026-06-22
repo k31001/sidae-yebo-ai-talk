@@ -2,7 +2,9 @@ import React from "react";
 import {
   BalanceHeavyLight,
   BlessingOrDisaster,
+  Cluster,
   CoverScene,
+  GiantFalls,
   IndustryIcon,
   IqGauge,
   LightCivFlow,
@@ -265,6 +267,9 @@ export const slides: SlideDef[] = [
             </div>
           ))}
         </div>
+        <p className="mt-4 text-[clamp(1rem,2.1vw,1.45rem)] font-black text-slate-900">
+          🏁 출발선은 공평하게, <span className="text-amber-600">올해.</span>
+        </p>
       </div>
     ),
   },
@@ -330,6 +335,35 @@ export const slides: SlideDef[] = [
     ),
   },
 
+  /* 6.5 — 단속적 협력 (경량문명의 규칙) ------------------------------- */
+  {
+    id: "clusters",
+    bg: "from-sky-100 via-white to-violet-50",
+    weather: { icon: "🔗", label: "유동적 기단" },
+    pace: "1:00",
+    notes:
+      "경량문명의 일하는 방식. 평생직장·영구고용이 아니라 프로젝트 단위로 ‘지금 만나고, 잠시 만나고, 다시 만나는’ 단속적 협력. 필요할 때 모였다 흩어지는 ‘클러스터’가 기본 단위. 직장인에게: 회사가 아니라 ‘프로젝트로’ 일하는 감각.",
+    Content: () => (
+      <div className="flex w-full max-w-6xl flex-col items-center text-center">
+        <Kicker icon="🔗" no="일하는 방식">
+          경량문명의 규칙
+        </Kicker>
+        <Quote size="text-[clamp(1.4rem,3.7vw,2.6rem)]">
+          지금 만나고, 잠시 만나고,{" "}
+          <span className="text-violet-600">다시 만난다.</span>
+        </Quote>
+        <Cluster className="mt-4 h-[25vh] w-auto max-w-full" />
+        <div className="mt-3">
+          <Lead>
+            평생직장·영구고용이 아니라{" "}
+            <b className="text-slate-800">프로젝트 중심의 단속적 협력</b>. 필요할 때 모였다
+            흩어지는 ‘클러스터’가 기본 단위가 됩니다.
+          </Lead>
+        </div>
+      </div>
+    ),
+  },
+
   /* 7 — 동력① 지능의 범용화 ------------------------------------------- */
   {
     id: "intelligence",
@@ -388,6 +422,39 @@ export const slides: SlideDef[] = [
     ),
   },
 
+  /* 8.5 — 거대하면 죽는다 (大馬必死) --------------------------------- */
+  {
+    id: "giant-falls",
+    bg: "from-slate-100 via-white to-rose-50",
+    weather: { icon: "🌪️", label: "대형 저기압 소멸" },
+    pace: "1:10",
+    notes:
+      "거대 조직이 오히려 불리해진다 — 大馬必死(큰 말은 반드시 죽는다). 이유 둘: ① 천재는 더 이상 대규모 조직에 안 들어간다(성과급을 나눠야 하니까). ② ‘김 부장 시스템’이 안 바뀐다 — 권한 가진 사람은 권한을 포기하지 않으니까. 직장인 공감 + 웃음 포인트.",
+    Content: () => (
+      <div className="flex w-full max-w-6xl flex-col items-center text-center">
+        <Kicker icon="🏚️" no="조직의 몰락">
+          大馬必死 · 큰 말은 반드시 죽는다
+        </Kicker>
+        <Quote size="text-[clamp(1.5rem,4vw,2.8rem)]">
+          이제 <span className="text-rose-600">거대하면 죽는다.</span>
+        </Quote>
+        <GiantFalls className="mt-3 h-[23vh] w-auto max-w-full" />
+        <div className="mt-3 grid w-full max-w-4xl grid-cols-1 gap-3 md:grid-cols-2">
+          <div className="rounded-2xl bg-white/80 p-4 text-left shadow-sm ring-1 ring-slate-900/5">
+            <p className="text-sm font-bold leading-snug text-slate-700">
+              🧠 <b>천재는 더 이상 대규모 조직에 안 들어간다</b> — 성과급을 나눠야 하니까.
+            </p>
+          </div>
+          <div className="rounded-2xl bg-white/80 p-4 text-left shadow-sm ring-1 ring-slate-900/5">
+            <p className="text-sm font-bold leading-snug text-slate-700">
+              🪑 <b>‘김 부장 시스템’은 안 바뀐다</b> — 권한 가진 사람은 권한을 포기하지 않으니까.
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+
   /* 9 — 경쟁의 대전환 -------------------------------------------------- */
   {
     id: "competition",
@@ -426,7 +493,7 @@ export const slides: SlideDef[] = [
       "송길영이 드는 생생한 사례들 — 가장 재미있는 파트. 광고: 유명 광고가 6월엔 1시간 촬영, 9월엔 촬영 0(AI로만). 법률: 작은 로펌 월 300만 원 인턴에 SKY 50명, 패럴리걸·어소시에이트는 챗GPT가 대신. 중개: OpenAI 8분 앱 시연, 24시간 다국어 AI 상담. 물류: 쿠팡 채용이 ‘소통’에서 ‘자동화’로. 하나씩 짚으며 ‘남 얘기 아니다’.",
     Content: () => {
       const cases = [
-        { type: "ad", t: "광고", s: "6월 1시간 촬영 → 9월 촬영 0, AI로만 제작" },
+        { type: "ad", t: "광고", s: "6월 1시간 촬영 → 9월 촬영 0. 메타는 제작도구를 광고주에 직접" },
         { type: "law", t: "법률", s: "인턴에 SKY 50명. 패럴리걸·어소시에이트는 챗GPT가" },
         { type: "broker", t: "중개", s: "8분 만에 앱. 24시간·다국어 AI 상담" },
         { type: "logistics", t: "물류", s: "쿠팡 채용 ‘소통 담당’ → ‘자동화 담당’" },
