@@ -45,6 +45,9 @@ export default function Deck() {
   // 시계 (클라이언트에서만)
   const [clock, setClock] = useState("");
 
+  // 줌 (모니터 해상도별 확대/축소, localStorage 저장)
+  const [zoom, setZoom] = useState(1);
+
   const go = useCallback((dir: number) => {
     setDirection(dir);
     setIndex((i) => Math.min(Math.max(i + dir, 0), TOTAL - 1));
@@ -65,6 +68,23 @@ export default function Deck() {
     } else {
       document.exitFullscreen?.();
     }
+  }, []);
+
+  const changeZoom = useCallback((delta: number) => {
+    setZoom((z) => {
+      const n = Math.min(2, Math.max(0.5, Math.round((z + delta) * 100) / 100));
+      try {
+        localStorage.setItem("deck-zoom", String(n));
+      } catch {}
+      return n;
+    });
+  }, []);
+
+  const resetZoom = useCallback(() => {
+    setZoom(1);
+    try {
+      localStorage.setItem("deck-zoom", "1");
+    } catch {}
   }, []);
 
   /* ---------------- 키보드 ---------------- */
@@ -94,6 +114,15 @@ export default function Deck() {
         toggleFullscreen();
       } else if (k === "?" || k === "/") {
         setShowHelp((v) => !v);
+      } else if (k === "+" || k === "=") {
+        e.preventDefault();
+        changeZoom(0.1);
+      } else if (k === "-" || k === "_") {
+        e.preventDefault();
+        changeZoom(-0.1);
+      } else if (k === "0") {
+        e.preventDefault();
+        resetZoom();
       } else if (k === "Escape") {
         setShowHelp(false);
         setShowNotes(false);
@@ -101,7 +130,7 @@ export default function Deck() {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [go, goTo, toggleFullscreen]);
+  }, [go, goTo, toggleFullscreen, changeZoom, resetZoom]);
 
   /* ---------------- 타이머 ---------------- */
   useEffect(() => {
@@ -122,6 +151,12 @@ export default function Deck() {
     tick();
     const id = window.setInterval(tick, 15000);
     return () => window.clearInterval(id);
+  }, []);
+
+  /* ---------------- 줌 복원 (모니터별 저장값) ---------------- */
+  useEffect(() => {
+    const v = parseFloat(localStorage.getItem("deck-zoom") || "");
+    if (!Number.isNaN(v) && v >= 0.5 && v <= 2) setZoom(v);
   }, []);
 
   /* ---------------- 터치 스와이프 ---------------- */
@@ -165,7 +200,7 @@ export default function Deck() {
       </div>
 
       {/* 슬라이드 */}
-      <AnimatePresence mode="wait" custom={direction}>
+      <AnimatePresence custom={direction} initial={false}>
         <motion.section
           key={slide.id}
           custom={direction}
@@ -182,9 +217,14 @@ export default function Deck() {
             <div className="absolute right-10 top-10 h-40 w-40 rounded-full bg-white/20 blur-2xl" />
           </div>
 
-          {/* 콘텐츠 */}
+          {/* 콘텐츠 (줌 적용) */}
           <div className="absolute inset-0 z-10 flex items-center justify-center px-7 pb-20 pt-20 md:px-20">
-            <slide.Content />
+            <div
+              className="flex w-full items-center justify-center transition-transform duration-150 will-change-transform"
+              style={{ transform: `scale(${zoom})`, transformOrigin: "center center" }}
+            >
+              <slide.Content />
+            </div>
           </div>
         </motion.section>
       </AnimatePresence>
@@ -247,8 +287,34 @@ export default function Deck() {
           </NavBtn>
         </div>
 
-        {/* 우: 보조 버튼 */}
+        {/* 우: 줌 + 보조 버튼 */}
         <div className="flex items-center gap-1.5">
+          <div className="mr-1 hidden items-center rounded-full bg-white/75 shadow-sm ring-1 ring-slate-900/5 backdrop-blur sm:flex">
+            <button
+              onClick={() => changeZoom(-0.1)}
+              title="축소 (−)"
+              aria-label="축소"
+              className="flex h-9 w-9 items-center justify-center rounded-full text-xl font-bold text-slate-600 transition hover:bg-slate-900/5"
+            >
+              −
+            </button>
+            <button
+              onClick={resetZoom}
+              title="100%로 리셋 (0)"
+              aria-label="줌 리셋"
+              className="min-w-[48px] text-center text-xs font-extrabold tabular-nums text-slate-600 transition hover:text-slate-900"
+            >
+              {Math.round(zoom * 100)}%
+            </button>
+            <button
+              onClick={() => changeZoom(0.1)}
+              title="확대 (+)"
+              aria-label="확대"
+              className="flex h-9 w-9 items-center justify-center rounded-full text-xl font-bold text-slate-600 transition hover:bg-slate-900/5"
+            >
+              +
+            </button>
+          </div>
           <IconBtn label="발표자 노트 (N)" active={showNotes} onClick={() => setShowNotes((v) => !v)}>
             📝
           </IconBtn>
@@ -327,6 +393,7 @@ export default function Deck() {
                 <Shortcut keys="N">발표자 노트</Shortcut>
                 <Shortcut keys="T / R">타이머 시작·정지 / 리셋</Shortcut>
                 <Shortcut keys="F">전체화면</Shortcut>
+                <Shortcut keys="+ / − / 0">확대 / 축소 / 100%</Shortcut>
                 <Shortcut keys="? ">이 도움말</Shortcut>
               </ul>
               <p className="mt-5 text-xs text-slate-400">
