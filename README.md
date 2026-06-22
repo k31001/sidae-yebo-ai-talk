@@ -5,6 +5,7 @@
 각 슬라이드는 **송길영 작가의 핵심 워딩(인용문) + 이를 표현하는 시각화** 한 쌍으로 구성됩니다.
 
 🔗 원본 영상: https://youtu.be/lVVPmhJjCjA
+🔗 발표 자료: https://sidae-yebo-ai-talk.vercel.app
 
 ## 핵심 메시지
 
