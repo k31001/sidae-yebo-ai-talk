@@ -128,10 +128,27 @@
   .pmap svg{width:100%;display:block}
   .pnote{padding:10px 16px 14px;font-size:12.5px;color:var(--muted);border-top:1px dashed var(--line)}
   .pselect{display:grid;gap:12px}
+  .psum{background:linear-gradient(135deg,#0f3b57,#0e7490);color:#fff;border-radius:14px;
+    padding:10px 14px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 18px;
+    font-size:13.5px;font-weight:800}
+  .psum b{color:#ffe9a8}
+  .psum .tt{font-size:11px;font-weight:800;letter-spacing:.08em;color:#9fd4e4;margin-right:-6px}
   @media (min-width:760px){
     /* 지도(좌·스크롤 고정) + 식당 선택/이동 구간(우) 2단 배치 — 한 화면에 함께 보이도록 */
-    .pgrid{grid-template-columns:minmax(280px,5fr) 7fr;align-items:start}
+    .pgrid{grid-template-columns:minmax(340px,6fr) 6fr;align-items:start}
     .pmap{position:sticky;top:64px}
+    /* 우측 선택/이동 구간은 컴팩트하게 */
+    .pside{gap:10px}
+    .pselect{gap:8px}
+    .pslot{padding:10px 12px}
+    .pslot .pl{font-size:12px;margin-bottom:7px}
+    .pchips{gap:5px}
+    .pchips button{padding:5px 10px;font-size:12px}
+    .pinfo{font-size:11.5px;padding:7px 10px;margin-top:7px}
+    .plegs{padding:12px 14px}
+    .plegs h4{font-size:13px;margin-bottom:6px}
+    .plegs .leg{font-size:12px;padding:4px 0}
+    .plegs .dsum{font-size:12.5px;padding:7px 10px;margin-top:8px}
   }
   @media (max-width:759px){
     .pmap svg{max-height:64vh}
@@ -572,6 +589,7 @@
       <div class="pnote">※ 위치·도로는 이해를 돕기 위한 개념도이며, 거리·시간은 실주행 기준 추정치입니다. 출발 전 내비게이션으로 확인하세요.</div>
     </div>
     <div class="pside">
+    <div class="psum" id="sum-d1"></div>
     <div class="pselect" id="sel-d1"><div class="pslot"><div class="pl">🍽️ 금 저녁 <span>19:00</span></div><div class="pchips"><button data-slot="fri_dinner" data-opt="eomji" class="sel">엄지네포장마차</button><button data-slot="fri_dinner" data-opt="haeseong" class="">해성횟집</button><button data-slot="fri_dinner" data-opt="gamja" class="">감자적1번지</button><button data-slot="fri_dinner" data-opt="gyeongpo" class="">경포 회센터(포장)</button></div>
         <div class="pinfo">⏳ 예상 대기 <b>60~90분</b> · 📱 테이블링 원격 줄서기(진입 30분 전 필수) · 💳 4인 약 <b>7만원</b></div></div></div>
     <div class="plegs" id="legs-d1"><h4>🛣️ Day 1 · 금 이동 구간</h4><div class="leg"><span class="lr">수원 → 강릉 (영동선·금 오후 정체 포함)</span><span class="lv">228km · 2시간 50분</span></div><div class="leg"><span class="lr">엄지네포장마차 → 라카이샌드파인</span><span class="lv">3km · 6분</span></div>
@@ -586,6 +604,7 @@
       <div class="pnote">※ 위치·도로는 개념도이며 거리·시간은 추정치입니다.</div>
     </div>
     <div class="pside">
+    <div class="psum" id="sum-d2"></div>
     <div class="pselect" id="sel-d2"><div class="pslot"><div class="pl">🍽️ 토 아침 <span>08:00</span></div><div class="pchips"><button data-slot="sat_break" data-opt="donghwa" class="sel">동화가든</button><button data-slot="sat_break" data-opt="tobagi" class="">토박이할머니순두부</button><button data-slot="sat_break" data-opt="yeongok" class="">연곡꾹저구탕</button></div>
         <div class="pinfo">⏳ 예상 대기 <b>오픈 직후 10~20분 (9시 이후 60분+)</b> · 📱 테이블링 웨이팅 · 💳 4인 약 <b>5만원</b></div></div><div class="pslot"><div class="pl">🍽️ 토 점심 <span>12:30</span></div><div class="pchips"><button data-slot="sat_lunch" data-opt="chodang" class="sel">초당두부마을</button><button data-slot="sat_lunch" data-opt="hyungje" class="">형제칼국수</button><button data-slot="sat_lunch" data-opt="seoji" class="">서지초가뜰</button></div>
         <div class="pinfo">⏳ 예상 대기 <b>20~30분</b> · 📱 매장별 현장 대기 · 💳 4인 약 <b>6.6만원</b></div></div><div class="pslot"><div class="pl">🍽️ 토 카페 <span>16:30</span></div><div class="pchips"><button data-slot="sat_cafe" data-opt="terarosa" class="sel">테라로사 커피공장</button><button data-slot="sat_cafe" data-opt="bohemian" class="">보헤미안 박이추</button><button data-slot="sat_cafe" data-opt="myeongju" class="">명주동 골목카페</button></div>
@@ -603,6 +622,7 @@
       <div class="pnote">※ 위치·도로는 개념도이며 거리·시간은 추정치입니다.</div>
     </div>
     <div class="pside">
+    <div class="psum" id="sum-d3"></div>
     <div class="pselect" id="sel-d3"><div class="pslot"><div class="pl">🍽️ 일 점심 <span>11:30</span></div><div class="pchips"><button data-slot="sun_lunch" data-opt="market" class="sel">강릉 중앙시장</button><button data-slot="sun_lunch" data-opt="hyundai" class="">현대장칼국수</button><button data-slot="sun_lunch" data-opt="samgyori" class="">삼교리동치미막국수</button><button data-slot="sun_lunch" data-opt="haeseong" class="">해성횟집</button></div>
         <div class="pinfo">⏳ 예상 대기 <b>가게별 10~30분</b> · 📱 현장 (배니닭강정·어묵고로케) · 💳 4인 약 <b>5만원</b></div></div></div>
     <div class="plegs" id="legs-d3"><h4>🛣️ Day 3 · 일 이동 구간</h4><div class="leg"><span class="lr">라카이샌드파인 → 강릉 중앙시장</span><span class="lv">6km · 11분</span></div><div class="leg"><span class="lr">강릉 → 수원 (일 오후·휴게소 1회 포함)</span><span class="lv">232km · 2시간 55분</span></div>
@@ -615,12 +635,12 @@
     <h3>💰 예상 비용 & 총 이동시간</h3>
     <div class="sub">아래 금액은 4인 가족 기준 추정치 — 위에서 식당을 바꾸면 자동으로 다시 계산됩니다.</div>
     <div id="brows">
-      <div class="brow stay"><span>🏨 숙박 (라카이샌드파인 2박)</span><b><input id="stayIn" type="number" min="0" value="80"> 만원</b></div>
+      <div class="brow stay"><span>🏨 숙박 (라카이샌드파인 2박)</span><b><input id="stayIn" type="number" min="0" value="48"> 만원</b></div>
       <div class="brow"><span>🍽️ 식사 6끼 (선택 기준·4인)</span><b>약 38.6만원</b></div>
       <div class="brow"><span>🍿 휴게소·시장 간식·주전부리</span><b>약 4.5만원</b></div>
       <div class="brow"><span>🛣️ 고속도로 통행료 (왕복)</span><b>약 2.2만원</b></div>
       <div class="brow"><span>⚡ 모델Y 충전 (왕복+현지)</span><b>약 3만원</b></div>
-      <div class="brow total"><span>💰 예상 총 비용</span><b>약 128.3만원</b></div>
+      <div class="brow total"><span>💰 예상 총 비용</span><b>약 96.3만원</b></div>
       <div class="brow total"><span>🚗 3일 총 운전</span><b>약 534km · 7시간 21분</b></div></div>
     <div class="foot">🚗 통행료는 영동선 왕복 승용차 기준, 충전비는 모델Y 왕복 약 460km + 현지 주행분 급속충전 기준 추정입니다. 숙박비는 성수기 주말 객실 타입에 따라 차이가 크니 예약 금액으로 직접 조정해 보세요(만원 단위).</div>
   </div>
@@ -1098,9 +1118,18 @@
       <div class="dsum">이날 운전 합계 — 약 ${Math.round(km)}km · ${fmt(Math.round(min))}</div>`;
   }
   const fmt=m=>m>=60?Math.floor(m/60)+'시간 '+(m%60?m%60+'분':''):m+'분';
+  // ---- per-day live summary (이동거리·식사비) ----
+  function drawDaySum(dayKey){
+    const box=document.getElementById('sum-'+dayKey); if(!box)return;
+    let km=0,min=0; dayLegs(dayKey).forEach(L=>{km+=L.km;min+=L.min});
+    let meal=0; DAYS[dayKey].slots.forEach(k=>meal+=OPT[k].opts[sel[k]].cost);
+    box.innerHTML=`<span class="tt">${DAYS[dayKey].title}</span>`+
+      `<span>🚗 이동 <b>약 ${Math.round(km)}km · ${fmt(Math.round(min))}</b></span>`+
+      `<span>🍽️ 식사(4인) <b>약 ${(meal/10000).toLocaleString(undefined,{maximumFractionDigits:1})}만원</b></span>`;
+  }
   // ---- budget ----
   const FIX={toll:22000,charge:30000,snack:45000};
-  let stayMan=80;
+  let stayMan=48;
   function drawBudget(){
     let meals=0; Object.keys(sel).forEach(k=>meals+=OPT[k].opts[sel[k]].cost);
     let km=0,min=0; ['d1','d2','d3'].forEach(d=>dayLegs(d).forEach(L=>{km+=L.km;min+=L.min}));
@@ -1117,7 +1146,7 @@
     const inp=document.getElementById('stayIn');
     inp.addEventListener('change',()=>{stayMan=Math.max(0,+inp.value||0);drawBudget();});
   }
-  function refresh(){['d1','d2','d3'].forEach(d=>{drawMap(d);drawSelectors(d);drawLegs(d);});drawBudget();}
+  function refresh(){['d1','d2','d3'].forEach(d=>{drawMap(d);drawSelectors(d);drawLegs(d);drawDaySum(d);});drawBudget();}
   // chip clicks via delegation (survives re-render)
   document.getElementById('planner').addEventListener('click',e=>{
     const b=e.target.closest('.pchips button'); if(!b)return;
