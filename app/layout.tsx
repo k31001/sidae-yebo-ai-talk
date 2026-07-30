@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "시대예보 — 직장도 직업도 없어질 때, 꼭 남겨야 하는 것",
+  title: "컨텐츠 홈 — 시대예보 발표 · 강릉 가족여행",
   description:
-    "송길영 『시대예보』 기반 · AI 전선이 바꾸는 일의 미래(경량문명). 직장인을 위한 OKR Party 세미나 발표 자료.",
+    "시대예보(송길영) 발표 웹앱과 강릉 2박 3일 가족여행 가이드를 선택해 볼 수 있는 홈.",
 };
 
 export const viewport: Viewport = {

@@ -1,11 +1,25 @@
-# 시대예보 — 직장도 직업도 없어질 때, 꼭 남겨야 하는 것 ☀️
+# 컨텐츠 홈 — 시대예보 발표 ⛅ · 강릉 가족여행 🌊
+
+홈페이지(`/`)에서 두 가지 컨텐츠를 선택해 들어갈 수 있습니다.
+
+| 경로 | 컨텐츠 | 설명 |
+|---|---|---|
+| [`/talk`](https://sidae-yebo-ai-talk.vercel.app/talk) | ⛅ 시대예보 발표 | 송길영 『시대예보』 기반 15분 발표 웹앱 |
+| [`/gangneung`](https://sidae-yebo-ai-talk.vercel.app/gangneung) | 🌊 강릉 가족여행 | 2박 3일 가족여행 가이드 (일정 · 동선/예산 플래너 · 맛집) |
+
+- 홈 선택 화면: [`app/page.tsx`](app/page.tsx)
+- 강릉 여행 가이드: 자립형 정적 HTML — [`public/gangneung/index.html`](public/gangneung/index.html) (`next.config.mjs`의 rewrite로 `/gangneung`에 서빙)
+
+---
+
+## ⛅ 시대예보 — 직장도 직업도 없어질 때, 꼭 남겨야 하는 것
 
 송길영 『시대예보: 경량문명의 탄생』(인생질문 307회) 강연을 기반으로 만든 **15분 분량 발표 웹앱**입니다.
 일기예보 컨셉의 밝은 디자인으로, **OKR Party 세미나**에서 SSD Controller 검증팀(직장인)의 AI 도입 동기부여를 목적으로 합니다.
 각 슬라이드는 **송길영 작가의 핵심 워딩(인용문) + 이를 표현하는 시각화** 한 쌍으로 구성됩니다.
 
 🔗 원본 영상: https://youtu.be/lVVPmhJjCjA
-🔗 발표 자료: https://sidae-yebo-ai-talk.vercel.app
+🔗 발표 자료: https://sidae-yebo-ai-talk.vercel.app/talk
 
 ## 핵심 메시지
 
