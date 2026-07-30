@@ -231,7 +231,11 @@ export default function Deck() {
 
       {/* 상단 크롬: 브랜드 + 예보칩/시계 */}
       <header className="pointer-events-none absolute inset-x-0 top-0 z-30 flex items-center justify-between px-6 py-4 md:px-10">
-        <div className="flex items-center gap-2">
+        <a
+          href="/"
+          title="홈으로"
+          className="pointer-events-auto flex items-center gap-2 rounded-full px-2 py-1 transition hover:bg-white/60"
+        >
           <span className="text-xl">⛅</span>
           <span className="text-sm font-black tracking-tight text-slate-700 md:text-base">
             {META.brand}
@@ -239,7 +243,7 @@ export default function Deck() {
               {META.brandHanja}
             </span>
           </span>
-        </div>
+        </a>
         <div className="flex items-center gap-2">
           <span className="rounded-full bg-white/70 px-3 py-1 text-xs font-extrabold text-slate-600 shadow-sm ring-1 ring-slate-900/5 md:text-sm">
             {slide.weather.icon} {slide.weather.label}

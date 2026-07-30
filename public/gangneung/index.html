@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>강릉 2박 3일 가족여행 · 라카이샌드파인</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --deep:#0f3b57; --ocean:#0e7490; --sky:#7dd3fc; --sand:#f7ecdc; --cream:#fdf8f0;
+    --sunset:#ff8a5c; --coral:#ff6b57; --pine:#1d5c4a; --ink:#20303c; --muted:#5b7284;
+    --card:#ffffff; --line:#e8ded0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  img,svg{display:block;max-width:100%}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;min-height:92vh;display:flex;flex-direction:column;overflow:hidden}
+  .hero-art{position:absolute;inset:0;width:100%;height:100%}
+  .hero-art svg{width:100%;height:100%;object-fit:cover}
+  .hero-content{position:relative;z-index:2;margin-top:auto;padding:0 24px 56px;max-width:760px}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.92);
+    border-radius:999px;padding:8px 18px;font-weight:700;font-size:14px;color:var(--deep);
+    box-shadow:0 4px 18px rgba(15,59,87,.25)}
+  .hero h1{font-size:clamp(34px,8vw,60px);font-weight:800;color:#fff;line-height:1.15;
+    margin:18px 0 10px;text-shadow:0 3px 24px rgba(10,40,60,.45);letter-spacing:-.02em}
+  .hero p.sub{color:#fdf3e4;font-size:clamp(15px,3.5vw,19px);font-weight:500;text-shadow:0 2px 12px rgba(10,40,60,.5)}
+  .hero-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .chip{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.45);backdrop-filter:blur(6px);
+    color:#fff;border-radius:999px;padding:7px 15px;font-size:13.5px;font-weight:600}
+
+  /* ---------- NAV ---------- */
+  nav.jump{position:sticky;top:0;z-index:50;background:rgba(253,248,240,.92);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);display:flex;gap:4px;overflow-x:auto;padding:10px 16px;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none}
+  nav.jump::-webkit-scrollbar{display:none}
+  nav.jump a{flex:0 0 auto;text-decoration:none;color:var(--muted);font-weight:700;font-size:14px;
+    padding:8px 14px;border-radius:999px;transition:.2s}
+  nav.jump a:hover,nav.jump a.on{background:var(--deep);color:#fff}
+  nav.jump a.home{background:var(--sand);color:var(--deep);border:1px solid var(--line)}
+  nav.jump a.home:hover{background:var(--deep);color:#fff}
+
+  /* ---------- SECTIONS ---------- */
+  section{max-width:860px;margin:0 auto;padding:56px 20px 8px}
+  .kicker{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.14em;color:var(--coral);margin-bottom:8px}
+  h2{font-size:clamp(24px,5.5vw,34px);font-weight:800;letter-spacing:-.02em;color:var(--deep);margin-bottom:10px}
+  .lead{color:var(--muted);font-size:15.5px;max-width:640px}
+
+  /* overview stats */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:26px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 16px;
+    box-shadow:0 2px 10px rgba(32,48,60,.05)}
+  .stat .ico{font-size:24px}
+  .stat b{display:block;font-size:19px;color:var(--deep);margin-top:6px;letter-spacing:-.01em}
+  .stat span{font-size:13px;color:var(--muted)}
+
+  /* route strip */
+  .route{margin-top:28px;background:linear-gradient(135deg,#0f3b57,#0e7490);border-radius:22px;
+    padding:26px 22px;color:#fff;overflow:hidden;position:relative}
+  .route h3{font-size:17px;margin-bottom:16px;font-weight:800}
+  .route-line{display:flex;align-items:center;gap:0;flex-wrap:wrap;row-gap:18px}
+  .rstop{display:flex;flex-direction:column;align-items:center;min-width:86px;flex:1}
+  .rstop .dot{width:14px;height:14px;border-radius:50%;background:#ffd9a8;box-shadow:0 0 0 5px rgba(255,217,168,.25)}
+  .rstop b{font-size:14.5px;margin-top:9px}
+  .rstop span{font-size:12px;color:#bfe3ef}
+  .rseg{flex:1.2;height:3px;background:repeating-linear-gradient(90deg,#ffd9a8 0 10px,transparent 10px 18px);
+    min-width:30px;position:relative;top:-14px}
+  .rseg em{position:absolute;top:-24px;left:50%;transform:translateX(-50%);font-size:11.5px;
+    font-style:normal;color:#ffe9c9;white-space:nowrap}
+  .route .note{margin-top:16px;font-size:13px;color:#cfeaf3;background:rgba(255,255,255,.1);
+    border-radius:12px;padding:10px 14px}
+
+  /* ---------- DAY CARDS ---------- */
+  .day{background:var(--card);border:1px solid var(--line);border-radius:26px;overflow:hidden;
+    margin-top:30px;box-shadow:0 6px 26px rgba(32,48,60,.07)}
+  .day-banner{position:relative;height:230px;overflow:hidden}
+  .day-banner svg{width:100%;height:100%}
+  .day-tag{position:absolute;left:20px;bottom:16px;z-index:2}
+  .day-tag .d{display:inline-block;background:#fff;color:var(--deep);font-weight:800;font-size:13px;
+    border-radius:999px;padding:5px 14px;box-shadow:0 3px 12px rgba(0,0,0,.18)}
+  .day-tag h3{color:#fff;font-size:clamp(21px,5vw,27px);font-weight:800;margin-top:8px;
+    text-shadow:0 2px 14px rgba(10,40,60,.55);letter-spacing:-.01em}
+  .day-body{padding:10px 22px 26px}
+  .titem{display:grid;grid-template-columns:64px 20px 1fr;gap:0 14px;position:relative;padding:16px 0 4px}
+  .titem .time{font-weight:800;font-size:14px;color:var(--coral);padding-top:2px;text-align:right}
+  .titem .rail{position:relative;display:flex;justify-content:center}
+  .titem .rail::before{content:"";position:absolute;top:26px;bottom:-14px;width:2px;background:var(--line)}
+  .titem:last-child .rail::before{display:none}
+  .titem .rail .nd{width:13px;height:13px;border-radius:50%;background:var(--ocean);
+    box-shadow:0 0 0 4px #d9eef3;position:relative;top:6px;z-index:1}
+  .titem.meal .rail .nd{background:var(--coral);box-shadow:0 0 0 4px #ffe3da}
+  .titem h4{font-size:16.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .titem h4 .pill{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:var(--coral);
+    border-radius:999px;padding:2px 9px;margin-left:7px;position:relative;top:-2px}
+  .titem h4 .pill.b{background:var(--ocean)}
+  .titem p{font-size:14px;color:var(--muted);margin-top:3px}
+  .titem p b{color:var(--ink)}
+
+  /* ---------- FOOD GALLERY ---------- */
+  .foods{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:26px}
+  .food{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;
+    box-shadow:0 4px 16px rgba(32,48,60,.06);transition:transform .2s}
+  .food:hover{transform:translateY(-4px)}
+  .food .art{height:160px}
+  .food .art svg{width:100%;height:100%}
+  .food .txt{padding:14px 16px 18px}
+  .food .txt b{font-size:16.5px;color:var(--deep);letter-spacing:-.01em}
+  .food .txt .where{display:block;font-size:12.5px;font-weight:700;color:var(--coral);margin:2px 0 6px}
+  .food .txt p{font-size:13.5px;color:var(--muted)}
+
+  /* ---------- ROUTE PLANNER ---------- */
+  .pdr{position:absolute;opacity:0;pointer-events:none}
+  .ptabs{display:flex;gap:8px;margin-top:22px}
+  .ptabs label{flex:1;border:1px solid var(--line);background:var(--card);border-radius:14px;text-align:center;
+    padding:12px 6px;font-size:14.5px;font-weight:800;color:var(--muted);cursor:pointer;transition:.2s;user-select:none}
+  .pday{display:none}
+  #pd1:checked ~ #pday-d1,#pd2:checked ~ #pday-d2,#pd3:checked ~ #pday-d3{display:block}
+  #pd1:checked ~ .ptabs label[for=pd1],#pd2:checked ~ .ptabs label[for=pd2],#pd3:checked ~ .ptabs label[for=pd3]{
+    background:var(--deep);border-color:var(--deep);color:#fff;box-shadow:0 6px 18px rgba(15,59,87,.25)}
+  .pmap{margin-top:14px;background:var(--card);border:1px solid var(--line);border-radius:22px;
+    overflow:hidden;box-shadow:0 6px 26px rgba(32,48,60,.07)}
+  .pmap svg{width:100%;display:block}
+  .pnote{padding:10px 16px 14px;font-size:12.5px;color:var(--muted);border-top:1px dashed var(--line)}
+  .pselect{margin-top:16px;display:grid;gap:12px}
+  .pslot{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+  .pslot .pl{font-size:13px;font-weight:800;color:var(--deep);margin-bottom:9px}
+  .pslot .pl span{color:var(--coral)}
+  .pchips{display:flex;flex-wrap:wrap;gap:7px}
+  .pchips button{border:1.5px solid var(--line);background:#fbf7ef;border-radius:999px;padding:7px 13px;
+    font-family:inherit;font-size:13px;font-weight:700;color:var(--muted);cursor:pointer;transition:.15s}
+  .pchips button.sel{background:var(--ocean);border-color:var(--ocean);color:#fff}
+  .pinfo{margin-top:9px;font-size:12.8px;color:var(--muted);background:#f7f1e6;border-radius:10px;padding:9px 12px;line-height:1.55}
+  .pinfo b{color:var(--ink)}
+  .plegs{margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .plegs h4{font-size:14.5px;color:var(--deep);margin-bottom:10px}
+  .plegs .leg{display:flex;align-items:baseline;gap:8px;padding:6px 0;font-size:13.5px;border-top:1px dashed var(--line)}
+  .plegs .leg:first-of-type{border-top:none}
+  .plegs .leg .lr{color:var(--ink);font-weight:700;flex:1}
+  .plegs .leg .lv{color:var(--coral);font-weight:800;white-space:nowrap}
+  .plegs .dsum{margin-top:10px;background:var(--sand);border-radius:10px;padding:9px 12px;
+    font-size:13.5px;font-weight:800;color:var(--deep)}
+  /* budget */
+  .budget{margin-top:30px;background:linear-gradient(135deg,#1d5c4a,#2f7d5f);border-radius:22px;padding:26px 22px;color:#fff}
+  .budget h3{font-size:18px;font-weight:800;margin-bottom:4px}
+  .budget .sub{font-size:13px;color:#cbe8d8;margin-bottom:16px}
+  .brow{display:flex;justify-content:space-between;gap:10px;padding:8px 0;font-size:14px;
+    border-bottom:1px dashed rgba(255,255,255,.25)}
+  .brow span:first-child{color:#dff0e6}
+  .brow b{font-weight:800;white-space:nowrap}
+  .brow.total{border-bottom:none;margin-top:6px;font-size:17px}
+  .brow.total b{color:#ffe9a8}
+  .budget .stay{display:flex;align-items:center;gap:8px}
+  .budget input{width:64px;border:none;border-radius:8px;padding:5px 8px;font-family:inherit;
+    font-weight:800;font-size:14px;text-align:right;color:var(--deep)}
+  .budget .foot{margin-top:14px;font-size:12.5px;color:#d5ecdf;background:rgba(255,255,255,.1);border-radius:12px;padding:10px 14px}
+
+  /* ---------- SEASONAL FISH ---------- */
+  .season{margin-top:30px;background:linear-gradient(135deg,#0f3b57,#155a74);border-radius:22px;
+    padding:26px 22px;color:#fff}
+  .season h3{font-size:18px;font-weight:800;margin-bottom:4px}
+  .season .sub{font-size:13.5px;color:#bfe3ef;margin-bottom:18px}
+  .fishes{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+  .fish{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);border-radius:16px;
+    padding:14px 16px;display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start}
+  .fish svg{width:44px;height:34px;margin-top:3px}
+  .fish b{font-size:15.5px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+  .fish b em{font-style:normal;font-size:10.5px;font-weight:800;border-radius:999px;padding:2px 8px}
+  .fish b em.hot{background:#ff6b57;color:#fff}
+  .fish b em.mid{background:#ffd9a8;color:#7a4a1c}
+  .fish p{font-size:12.8px;color:#cfe8f1;margin-top:3px;line-height:1.5}
+  .season .foot{margin-top:16px;font-size:13px;color:#d8edf4;background:rgba(255,255,255,.1);
+    border-radius:12px;padding:10px 14px}
+
+  /* ---------- MEAL PICKER ---------- */
+  .slots{display:grid;gap:16px;margin-top:26px}
+  .slot{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;
+    box-shadow:0 4px 16px rgba(32,48,60,.06)}
+  .slot-head{display:flex;align-items:center;gap:10px;padding:14px 18px;
+    background:linear-gradient(135deg,#0f3b57,#0e7490);color:#fff}
+  .slot-head .em{font-size:20px}
+  .slot-head b{font-size:15.5px}
+  .slot-head span{margin-left:auto;font-size:12px;color:#bfe3ef;font-weight:600}
+  .opt{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;padding:14px 18px;border-top:1px solid var(--line)}
+  .opt:first-of-type{border-top:none}
+  .opt .badge{align-self:start;font-size:11px;font-weight:800;border-radius:999px;padding:3px 10px;
+    white-space:nowrap;margin-top:2px}
+  .opt.pick .badge{background:var(--coral);color:#fff}
+  .opt.alt .badge{background:#e7f2f5;color:var(--ocean);border:1px solid #cfe6ec}
+  .opt.loc .badge{background:#e9f3ec;color:#2f7d4f;border:1px solid #cbe3d3}
+  .opt.menu .badge{background:#f3ecdf;color:#8a5a1c;border:1px solid #e6d7ba}
+  .area-head-sub{font-size:12.5px;color:#bfe3ef;font-weight:600}
+  .opt b{font-size:15px;color:var(--deep);letter-spacing:-.01em}
+  .opt b small{font-weight:700;color:var(--muted);font-size:12px;margin-left:6px}
+  .opt p{grid-column:2;font-size:13.5px;color:var(--muted);margin-top:1px}
+  .opt p b{font-size:13.5px;color:var(--ink)}
+
+  /* ---------- TIPS ---------- */
+  .tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:26px}
+  .tip{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--sunset);
+    border-radius:16px;padding:18px}
+  .tip .ico{font-size:22px}
+  .tip b{display:block;font-size:15.5px;color:var(--deep);margin:6px 0 4px}
+  .tip p{font-size:13.5px;color:var(--muted)}
+
+  /* checklist */
+  .checks{margin-top:24px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px}
+  .checks h3{font-size:17px;color:var(--deep);margin-bottom:12px}
+  .checks label{display:flex;align-items:center;gap:10px;padding:9px 6px;border-radius:10px;
+    font-size:14.5px;cursor:pointer;transition:.15s}
+  .checks label:hover{background:var(--sand)}
+  .checks input{width:19px;height:19px;accent-color:var(--ocean);flex:none}
+  .checks input:checked+span{text-decoration:line-through;color:#a9b8c2}
+  .checks .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0 18px}
+
+  footer{margin-top:70px;padding:34px 20px 46px;text-align:center;background:var(--deep);color:#9dc4d6;font-size:13.5px}
+  footer b{color:#fff}
+  @media (max-width:520px){
+    .day-banner{height:190px}
+    .titem{grid-template-columns:52px 18px 1fr}
+    .titem .time{font-size:12.5px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HERO ═══════════ -->
+<header class="hero">
+  <div class="hero-art">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-label="강릉 경포 바다 노을 풍경">
+      <defs>
+        <linearGradient id="hsky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#2a5f8a"/><stop offset=".45" stop-color="#e98862"/>
+          <stop offset=".72" stop-color="#ffb36b"/><stop offset="1" stop-color="#ffd9a0"/>
+        </linearGradient>
+        <linearGradient id="hsea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#ff9e6a"/><stop offset=".25" stop-color="#3d7fa0"/>
+          <stop offset="1" stop-color="#0f3b57"/>
+        </linearGradient>
+        <radialGradient id="hsun" cx=".5" cy=".5" r=".5">
+          <stop offset="0" stop-color="#fff3d6"/><stop offset=".6" stop-color="#ffcf7d"/>
+          <stop offset="1" stop-color="#ffcf7d" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1200" height="520" fill="url(#hsky)"/>
+      <circle cx="760" cy="430" r="150" fill="url(#hsun)"/>
+      <circle cx="760" cy="430" r="62" fill="#fff0cf"/>
+      <ellipse cx="300" cy="180" rx="180" ry="26" fill="#ffffff" opacity=".16"/>
+      <ellipse cx="920" cy="120" rx="220" ry="30" fill="#ffffff" opacity=".13"/>
+      <ellipse cx="560" cy="250" rx="140" ry="20" fill="#ffd9b0" opacity=".3"/>
+      <rect y="500" width="1200" height="300" fill="url(#hsea)"/>
+      <g opacity=".55" stroke-linecap="round">
+        <path d="M80 560 Q 140 552 200 560 T 320 560" stroke="#ffd9a8" stroke-width="5" fill="none"/>
+        <path d="M700 545 Q 740 539 780 545 T 860 545" stroke="#ffe9c9" stroke-width="6" fill="none"/>
+        <path d="M420 600 Q 490 590 560 600 T 700 600" stroke="#9fd4e4" stroke-width="5" fill="none"/>
+        <path d="M150 660 Q 240 648 330 660 T 510 660" stroke="#8ec9dc" stroke-width="6" fill="none"/>
+        <path d="M760 690 Q 850 678 940 690 T 1120 690" stroke="#7dbdd2" stroke-width="6" fill="none"/>
+      </g>
+      <!-- sandy foreground -->
+      <path d="M0 730 Q 300 700 620 728 T 1200 722 V 800 H 0 Z" fill="#f2dfbe"/>
+      <!-- pine silhouettes (sandpine forest) -->
+      <g fill="#123c33">
+        <path d="M95 742 l0 -60 M95 682 q-34 26 -20 30 q-22 6 -8 14 q-20 8 -4 16 l64 0 q16 -8 -4 -16 q14 -8 -8 -14 q14 -4 -20 -30" transform="translate(0,0)"/>
+        <rect x="90" y="722" width="10" height="22" rx="3"/>
+        <path d="M170 700 q-40 30 -24 36 q-26 8 -10 17 q-24 9 -5 19 l78 0 q19 -10 -5 -19 q16 -9 -10 -17 q16 -6 -24 -36"/>
+        <rect x="165" y="752" width="11" height="24" rx="3"/>
+        <path d="M1060 690 q-44 33 -26 40 q-29 9 -11 19 q-26 10 -5 21 l84 0 q21 -11 -5 -21 q18 -10 -11 -19 q18 -7 -26 -40"/>
+        <rect x="1055" y="748" width="12" height="26" rx="3"/>
+        <path d="M1145 715 q-36 27 -21 33 q-24 7 -9 15 q-22 8 -4 17 l68 0 q18 -9 -4 -17 q15 -8 -9 -15 q15 -6 -21 -33"/>
+        <rect x="1140" y="758" width="10" height="22" rx="3"/>
+      </g>
+      <!-- resort silhouette -->
+      <g fill="#1c4a63" opacity=".92">
+        <rect x="880" y="600" width="150" height="130" rx="6"/>
+        <rect x="1010" y="640" width="70" height="90" rx="5"/>
+        <g fill="#ffd9a0">
+          <rect x="895" y="615" width="14" height="10" rx="2"/><rect x="920" y="615" width="14" height="10" rx="2"/>
+          <rect x="945" y="615" width="14" height="10" rx="2"/><rect x="970" y="615" width="14" height="10" rx="2"/>
+          <rect x="895" y="640" width="14" height="10" rx="2"/><rect x="945" y="640" width="14" height="10" rx="2"/>
+          <rect x="995" y="640" width="14" height="10" rx="2"/><rect x="920" y="665" width="14" height="10" rx="2"/>
+          <rect x="970" y="665" width="14" height="10" rx="2"/><rect x="1022" y="655" width="12" height="9" rx="2"/>
+          <rect x="1044" y="655" width="12" height="9" rx="2"/><rect x="1022" y="680" width="12" height="9" rx="2"/>
+        </g>
+      </g>
+      <!-- gulls -->
+      <g stroke="#3b3b4f" stroke-width="4" fill="none" stroke-linecap="round" opacity=".7">
+        <path d="M420 160 q14 -14 28 0 q14 -14 28 0"/>
+        <path d="M510 210 q11 -11 22 0 q11 -11 22 0"/>
+        <path d="M350 240 q9 -9 18 0 q9 -9 18 0"/>
+      </g>
+      <rect width="1200" height="800" fill="url(#hsea)" opacity="0"/>
+      <linearGradient id="hfade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset=".55" stop-color="#0f3b57" stop-opacity="0"/><stop offset="1" stop-color="#123049" stop-opacity=".55"/>
+      </linearGradient>
+      <rect width="1200" height="800" fill="url(#hfade)"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <span class="hero-badge">🗓️ 2026. 8. 28 (금) → 8. 30 (일) · 2박 3일</span>
+    <h1>강릉, 여름의<br>마지막 주말</h1>
+    <p class="sub">라카이샌드파인 리조트 · 바다 · 해산물 — 우리 네 식구 자동차 여행</p>
+    <div class="hero-chips">
+      <span class="chip">👨‍👩‍👦‍👧 40대 부부 + 중1 + 초5</span>
+      <span class="chip">🚗 수원 출발</span>
+      <span class="chip">🏊 인피니티풀</span>
+      <span class="chip">🦐 해산물·회 중심</span>
+    </div>
+  </div>
+</header>
+
+<nav class="jump" id="jumpnav">
+  <a href="/" class="home">⌂ 홈</a>
+  <a href="#overview">여행 개요</a>
+  <a href="#day1">Day 1 · 금</a>
+  <a href="#day2">Day 2 · 토</a>
+  <a href="#day3">Day 3 · 일</a>
+  <a href="#planner">동선 지도</a>
+  <a href="#foods">먹거리</a>
+  <a href="#picker">맛집 선택지</a>
+  <a href="#areas">주문진·시장</a>
+  <a href="#tips">꿀팁 & 준비물</a>
+</nav>
+
+<!-- ═══════════ OVERVIEW ═══════════ -->
+<section id="overview">
+  <span class="kicker">TRIP OVERVIEW</span>
+  <h2>한눈에 보는 여행</h2>
+  <p class="lead">테마는 <b>"여유"</b>. 리조트와 바로 앞 바다를 충분히 누리고, 이동은 짧게·식사는 확실하게. 8월 마지막 주말은 강릉 해수욕장 운영이 마무리되는 시기라 마지막 여름 바다를 즐기기 딱 좋아요.</p>
+  <div class="stats">
+    <div class="stat"><span class="ico">🛣️</span><b>약 230km</b><span>수원 → 강릉 (영동고속도로)</span></div>
+    <div class="stat"><span class="ico">⏱️</span><b>2.5~3.5시간</b><span>금요일 오후는 정체 감안</span></div>
+    <div class="stat"><span class="ico">🏨</span><b>라카이샌드파인</b><span>강문·경포해변 솔숲 바로 앞</span></div>
+    <div class="stat"><span class="ico">🌊</span><b>도보 1분 바다</b><span>리조트 앞이 바로 해변</span></div>
+  </div>
+
+  <div class="route">
+    <h3>🚗 이동 경로 (금요일 오후)</h3>
+    <div class="route-line">
+      <div class="rstop"><div class="dot"></div><b>수원</b><span>15:30 출발</span></div>
+      <div class="rseg"><em>영동고속도로</em></div>
+      <div class="rstop"><div class="dot"></div><b>횡성휴게소</b><span>간식 & 휴식</span></div>
+      <div class="rseg"><em>~1시간 20분</em></div>
+      <div class="rstop"><div class="dot"></div><b>강릉 도착</b><span>18:30~19:00</span></div>
+    </div>
+    <div class="note">⚡ 모델Y 기준 왕복 약 460km — 출발 전 완충해 두고, 강릉 시내 슈퍼차저/급속충전소에서 토요일 낮에 한 번 충전해 두면 귀경까지 여유. 차량 내비의 충전 경유 추천을 그대로 따라도 OK.</div>
+  </div>
+</section>
+
+<!-- ═══════════ DAY 1 ═══════════ -->
+<section id="day1">
+  <span class="kicker">FRIDAY · 8/28</span>
+  <h2>Day 1 — 설레는 출발, 밤바다 인사</h2>
+  <div class="day">
+    <div class="day-banner">
+      <svg viewBox="0 0 900 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-label="노을 진 고속도로를 달리는 자동차">
+        <defs>
+          <linearGradient id="d1s" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#35476b"/><stop offset=".55" stop-color="#e77a5a"/><stop offset="1" stop-color="#ffc478"/>
+          </linearGradient>
+        </defs>
+        <rect width="900" height="300" fill="url(#d1s)"/>
+        <circle cx="640" cy="170" r="46" fill="#fff0cf"/>
+        <ellipse cx="200" cy="80" rx="130" ry="18" fill="#fff" opacity=".14"/>
+        <ellipse cx="700" cy="60" rx="150" ry="20" fill="#fff" opacity=".12"/>
+        <!-- mountains -->
+        <path d="M0 210 L120 140 L230 205 L340 130 L470 210 L610 150 L760 215 L900 160 V300 H0 Z" fill="#3d5a63" opacity=".85"/>
+        <path d="M0 250 L160 195 L330 250 L520 200 L720 255 L900 210 V300 H0 Z" fill="#28434d"/>
+        <!-- road -->
+        <path d="M330 300 L430 218 L470 218 L620 300 Z" fill="#37404a"/>
+        <path d="M468 300 L448 218 L452 218 L492 300 Z" fill="#ffd9a8" opacity=".8"/>
+        <!-- car -->
+        <g transform="translate(395,238)">
+          <rect x="0" y="14" width="92" height="30" rx="13" fill="#e8ecef"/>
+          <path d="M14 16 q10 -16 32 -16 h12 q20 0 26 16 Z" fill="#dfe4e8"/>
+          <path d="M20 15 q8 -11 26 -11 h10 q14 0 20 11 Z" fill="#35476b"/>
+          <circle cx="20" cy="45" r="10" fill="#232a31"/><circle cx="20" cy="45" r="4.5" fill="#8fa2af"/>
+          <circle cx="72" cy="45" r="10" fill="#232a31"/><circle cx="72" cy="45" r="4.5" fill="#8fa2af"/>
+          <rect x="84" y="22" width="8" height="7" rx="3" fill="#ffe9a8"/>
+        </g>
+        <linearGradient id="d1f" x1="0" y1="0" x2="0" y2="1">
+          <stop offset=".5" stop-opacity="0" stop-color="#000"/><stop offset="1" stop-opacity=".45" stop-color="#1b2733"/>
+        </linearGradient>
+        <rect width="900" height="300" fill="url(#d1f)"/>
+      </svg>
+      <div class="day-tag"><span class="d">DAY 1 · 금요일</span><h3>수원 → 강릉 · 꼬막비빔밥 · 밤 산책</h3></div>
+    </div>
+    <div class="day-body">
+      <div class="titem"><div class="time">15:00</div><div class="rail"><div class="nd"></div></div>
+        <div><h4>하교 픽업 & 출발 준비</h4><p>짐은 <b>전날 밤 차에 미리 실어두기</b>. 아이들 픽업 후 바로 고속도로로 — 간식·물·멀미약은 좌석 주머니에.</p></div></div>
+      <div class="titem"><div class="time">15:30</div><div class="rail"><div class="nd"></div></div>
+        <div><h4>수원 출발 <span class="pill b">영동고속도로</span></h4><p>금요일 오후라 신갈~여주 구간 정체 가능. 내비 기준 2.5~3.5시간 예상.</p></div></div>
+      <div class="titem meal"><div class="time">17:00</div><div class="rail"><div class="nd"></div></div>
+        <div><h4>횡성휴게소 간식 타임 <span class="pill">간식</span></h4><p>한우버거·소떡소떡으로 허기만 살짝 달래기 — 저녁 메인을 위해 배는 남겨두세요.</p></div></div>
+      <div class="titem meal"><div class="time">19:00</div><div class="rail"><div class="nd"></div></div>
+        <div><h4>저녁 — 엄지네포장마차 본점 <span class="pill">먹거리</span></h4><p>강릉 대표 <b>꼬막무침·꼬막비빔밥</b>. 웨이팅이 길기로 유명하니 <b>강릉 진입 30~40분 전 테이블링 앱으로 원격 줄서기</b> 필수! (플랜B: 경포 회센터에서 모듬회 포장 → 리조트에서 바다 보며 저녁)</p></div></div>
+      <div class="titem"><div class="time">20:30</div><div class="rail"><div class="nd"></div></div>
+        <div><h4>라카이샌드파인 체크인</h4><p>짐 풀고 한숨 돌리기. 오션뷰라면 커튼부터 활짝!</p></div></div>
+      <div class="titem"><div class="time">21:00</div><div class="rail"><div class="nd"></div></div>
+        <div><h4>강문해변 밤 산책 🌙</h4><p>리조트 바로 앞 솔숲 지나 1분이면 바다. 파도 소리 들으며 여행 첫날 마무리 — 편의점 야식은 옵션.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ DAY 2 ═══════════ -->
+<section id="day2">
+  <span class="kicker">SATURDAY · 8/29</span>
+  <h2>Day 2 — 리조트 & 바다 만끽 데이</h2>
+  <div class="day">
+    <div class="day-banner">
+      <svg viewBox="0 0 900 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-label="바다가 보이는 인피니티풀">
+        <defs>
+          <linearGradient id="d2s" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#8fd3f4"/><stop offset="1" stop-color="#d8f0fb"/>
+          </linearGradient>
+          <linearGradient id="d2sea" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#2f8fb5"/><stop offset="1" stop-color="#0e7490"/>
+          </linearGradient>
+          <linearGradient id="d2pool" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#5fd4e8"/><stop offset="1" stop-color="#2ab5d4"/>
+          </linearGradient>
+        </defs>
+        <rect width="900" height="300" fill="url(#d2s)"/>
+        <circle cx="770" cy="60" r="34" fill="#fff3c9"/>
+        <ellipse cx="240" cy="55" rx="110" ry="16" fill="#fff" opacity=".8"/>
+        <ellipse cx="520" cy="85" rx="90" ry="13" fill="#fff" opacity=".7"/>
+        <rect y="120" width="900" height="70" fill="url(#d2sea)"/>
+        <g stroke="#bfeaf5" stroke-width="4" fill="none" stroke-linecap="round" opacity=".7">
+          <path d="M100 150 q30 -6 60 0 t120 0"/><path d="M520 168 q35 -7 70 0 t140 0"/>
+        </g>
+        <!-- infinity pool deck -->
+        <rect y="188" width="900" height="112" fill="#f3e6cf"/>
+        <path d="M60 196 h780 v84 q-200 26 -390 0 q-190 26 -390 0 Z" fill="url(#d2pool)"/>
+        <g stroke="#bff2fb" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8">
+          <path d="M180 230 q40 -8 80 0 t160 0"/><path d="M470 258 q45 -9 90 0 t180 0"/>
+        </g>
+        <!-- swim ring + kids -->
+        <circle cx="300" cy="240" r="26" fill="#ff8a5c"/><circle cx="300" cy="240" r="14" fill="#2ab5d4"/>
+        <circle cx="300" cy="228" r="9" fill="#ffd9a8"/>
+        <circle cx="640" cy="248" r="24" fill="#ffd23e"/><circle cx="640" cy="248" r="13" fill="#2ab5d4"/>
+        <circle cx="640" cy="236" r="8.5" fill="#f2b98c"/>
+        <!-- palm-ish pine -->
+        <g fill="#1d5c4a"><path d="M60 130 q-26 20 -15 25 q-17 5 -7 12 q-15 6 -3 13 l52 0 q12 -7 -3 -13 q10 -7 -7 -12 q11 -5 -17 -25"/>
+        <rect x="78" y="170" width="9" height="20" rx="3" fill="#6b4a2f"/></g>
+      </svg>
+      <div class="day-tag"><span class="d">DAY 2 · 토요일</span><h3>인피니티풀 · 경포 바다 · 주문진 회</h3></div>
+    </div>
+    <div class="day-body">
+      <div class="titem meal"><div class="time">08:00</div><div class="rail"><div class="nd"></div></div>
+        <div><h4>아침 — 동화가든 짬뽕순두부 <span class="pill">먹거리</span></h4><p>초당 원조 <b>짬순(짬뽕순두부)</b>. 주말 웨이팅이 상당하니 <b>오픈 직후(아침) 방문이 정답</b> — 리조트에서 차 5분. 얼큰한 국물에 아이들은 순두부백반으로.</p></div></div>
+      <div class="titem"><div class="time">10:00</div><div class="rail"><div class="nd"></div></div>
+        <div><h4>리조트 수영장 타임 🏊 <span class="pill b">리조트</span></h4><p>오전이 가장 한산! 바다를 마주보는 <b>인피니티풀</b>과 실내풀을 넉넉하게. 중1 형아는 슬라이드·깊은 풀, 초5 동생은 유아·중간 풀 위주로.</p></div></div>
+      <div class="titem meal"><div class="time">12:30</div><div class="rail"><div class="nd"></div></div>
+        <div><h4>점심 — 초당순두부마을 <span class="pill">먹거리</span></h4><p>리조트 옆 동네가 바로 초당동! 담백한 <b>초당 두부전골·순두부젤라또</b>까지. 수영 후 따뜻한 국물이 꿀맛.</p></div></div>
+      <div class="titem"><div class="time">14:00</div><div class="rail"><div class="nd"></div></div>
+        <div><h4>경포·강문 바다 물놀이 🌊</h4><p><b>여름 바다 마지막 주말!</b> 리조트 앞 해변에서 튜브·모래놀이. 오후 해가 부드러워지는 시간대라 덜 타요. (폐장 임박 시기엔 안전요원 운영시간 내에서만 입수)</p></div></div>
+      <div class="titem"><div class="time">16:30</div><div class="rail"><div class="nd"></div></div>
+        <div><h4>테라로사 커피공장 본점 ☕</h4><p>차로 20분, 강릉 커피의 심장. 부모님은 <b>로스터리 스페셜티</b>, 아이들은 <b>빵·케이크</b> — 공장형 대형 카페라 구경하는 재미도 있어요. (안목은 지난번에 다녀왔으니 이번엔 새 코스로!)</p></div></div>
+      <div class="titem meal"><div class="time">18:30</div><div class="rail"><div class="nd"></div></div>
+        <div><h4>저녁 — 주문진항 회센터 <span class="pill">먹거리</span></h4><p>차로 20분. 오늘의 메인이벤트 — <b>모듬회 + 물회 + 곰치국</b>. 수산시장 1층에서 회 떠서 2층 초장집, 또는 근처 횟집에서 편하게. <b>여름 살오징어가 딱 제철</b> — 아래 제철 회 치트시트 참고!</p></div></div>
+      <div class="titem"><div class="time">20:30</div><div class="rail"><div class="nd"></div></div>
+        <div><h4>리조트 복귀 & 야간 수영 or 보드게임 🌙</h4><p>야간 풀 세션이 열리는 날이면 온 가족 한 번 더! 아니면 객실에서 보드게임·영화로 마무리.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ DAY 3 ═══════════ -->
+<section id="day3">
+  <span class="kicker">SUNDAY · 8/30</span>
+  <h2>Day 3 — 시장 먹거리 투어 후 여유 귀가</h2>
+  <div class="day">
+    <div class="day-banner">
+      <svg viewBox="0 0 900 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-label="강릉 중앙시장 먹거리 골목">
+        <defs>
+          <linearGradient id="d3s" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffe9c9"/><stop offset="1" stop-color="#ffd4a1"/>
+          </linearGradient>
+        </defs>
+        <rect width="900" height="300" fill="url(#d3s)"/>
+        <!-- market street -->
+        <rect y="230" width="900" height="70" fill="#c9a97e"/>
+        <!-- stalls -->
+        <g>
+          <rect x="40" y="120" width="220" height="115" rx="8" fill="#fff6ea"/>
+          <path d="M30 128 l120 -38 l120 38 v14 h-240 Z" fill="#ff6b57"/>
+          <path d="M30 128 h240 v14 l-30 10 l-30 -10 l-30 10 l-30 -10 l-30 10 l-30 -10 l-30 10 l-30 -10 Z" fill="#e8503c"/>
+          <rect x="65" y="160" width="170" height="44" rx="6" fill="#ffd9a8"/>
+          <circle cx="95" cy="182" r="13" fill="#e8963c"/><circle cx="128" cy="182" r="13" fill="#e8963c"/>
+          <circle cx="161" cy="182" r="13" fill="#d4822e"/><circle cx="194" cy="182" r="13" fill="#e8963c"/>
+        </g>
+        <g>
+          <rect x="330" y="110" width="240" height="125" rx="8" fill="#fff6ea"/>
+          <path d="M320 118 l130 -42 l130 42 v14 h-260 Z" fill="#1d8ca8"/>
+          <path d="M320 118 h260 v14 l-32 10 l-33 -10 l-32 10 l-33 -10 l-32 10 l-33 -10 l-32 10 l-33 -10 Z" fill="#14708a"/>
+          <rect x="355" y="152" width="190" height="50" rx="6" fill="#cfeef5"/>
+          <ellipse cx="395" cy="177" rx="24" ry="14" fill="#f4f8fa"/><ellipse cx="450" cy="177" rx="24" ry="14" fill="#f4f8fa"/>
+          <ellipse cx="505" cy="177" rx="24" ry="14" fill="#f4f8fa"/>
+          <g fill="#e8503c"><circle cx="395" cy="174" r="5"/><circle cx="450" cy="174" r="5"/><circle cx="505" cy="174" r="5"/></g>
+        </g>
+        <g>
+          <rect x="640" y="122" width="220" height="113" rx="8" fill="#fff6ea"/>
+          <path d="M630 130 l120 -38 l120 38 v14 h-240 Z" fill="#ffb020"/>
+          <path d="M630 130 h240 v14 l-30 10 l-30 -10 l-30 10 l-30 -10 l-30 10 l-30 -10 l-30 10 l-30 -10 Z" fill="#e39310"/>
+          <rect x="665" y="162" width="170" height="44" rx="6" fill="#ffe3b8"/>
+          <rect x="682" y="172" width="12" height="26" rx="5" fill="#c96a2d"/><rect x="706" y="172" width="12" height="26" rx="5" fill="#c96a2d"/>
+          <rect x="730" y="172" width="12" height="26" rx="5" fill="#b85c22"/><rect x="754" y="172" width="12" height="26" rx="5" fill="#c96a2d"/>
+          <rect x="778" y="172" width="12" height="26" rx="5" fill="#c96a2d"/>
+        </g>
+        <!-- family silhouettes -->
+        <g fill="#35476b">
+          <circle cx="300" cy="248" r="11"/><rect x="291" y="258" width="18" height="30" rx="8"/>
+          <circle cx="330" cy="250" r="10"/><rect x="322" y="259" width="16" height="28" rx="7"/>
+          <circle cx="358" cy="256" r="8"/><rect x="351" y="263" width="14" height="23" rx="6"/>
+          <circle cx="382" cy="258" r="7"/><rect x="376" y="264" width="12" height="20" rx="5"/>
+        </g>
+        <!-- bunting -->
+        <g>
+          <path d="M0 40 q450 60 900 0" stroke="#c96a2d" stroke-width="3" fill="none"/>
+          <g fill="#ff6b57"><path d="M80 46 l12 22 l12 -20 Z"/><path d="M300 68 l12 22 l12 -20 Z"/><path d="M640 62 l12 22 l12 -20 Z"/></g>
+          <g fill="#1d8ca8"><path d="M180 58 l12 22 l12 -20 Z"/><path d="M420 72 l12 22 l12 -20 Z"/><path d="M760 52 l12 22 l12 -20 Z"/></g>
+          <g fill="#ffb020"><path d="M520 72 l12 22 l12 -20 Z"/><path d="M860 40 l12 22 l12 -20 Z"/></g>
+        </g>
+      </svg>
+      <div class="day-tag"><span class="d">DAY 3 · 일요일</span><h3>느긋한 아침 · 중앙시장 · 귀가</h3></div>
+    </div>
+    <div class="day-body">
+      <div class="titem"><div class="time">08:30</div><div class="rail"><div class="nd"></div></div>
+        <div><h4>늦잠 & 여유로운 아침 <span class="pill b">리조트</span></h4><p>마지막 날은 서두르지 않기. 컨디션 되면 아침 수영 한 번 더, 해변 산책으로 바다와 작별 인사.</p></div></div>
+      <div class="titem"><div class="time">11:00</div><div class="rail"><div class="nd"></div></div>
+        <div><h4>체크아웃</h4><p>충전 잔량 확인 — 부족하면 시내 이동 전 급속충전 먼저.</p></div></div>
+      <div class="titem meal"><div class="time">11:30</div><div class="rail"><div class="nd"></div></div>
+        <div><h4>강릉 중앙시장 먹거리 투어 <span class="pill">먹거리</span></h4><p>이날 점심은 시장 투어로 대체! <b>닭강정·오징어순대·어묵고로케·수제전병</b> 골고루 — 아이들이 제일 신나는 코스. 귀가길 간식도 여기서 포장.</p></div></div>
+      <div class="titem meal"><div class="time">12:40</div><div class="rail"><div class="nd"></div></div>
+        <div><h4>마무리 한 그릇 — 장칼국수 <span class="pill">먹거리</span></h4><p>시장 안팎의 <b>얼큰한 장칼국수</b>로 든든하게 마무리. (배부르면 생략하고 시장 간식으로 충분!)</p></div></div>
+      <div class="titem"><div class="time">13:30</div><div class="rail"><div class="nd"></div></div>
+        <div><h4>강릉 출발 <span class="pill b">귀가</span></h4><p><b>일요일 귀경 정체는 오후 3시 이후 절정</b> — 1시 반 출발이면 한결 수월. 문막·여주휴게소에서 한 번 쉬어가기.</p></div></div>
+      <div class="titem"><div class="time">17:00</div><div class="rail"><div class="nd"></div></div>
+        <div><h4>수원 도착 🏠</h4><p>월요일 등교 준비까지 여유 있게 도착. 여행 사진 정리하며 마무리!</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ROUTE PLANNER ═══════════ -->
+<section id="planner">
+  <span class="kicker">ROUTE PLANNER</span>
+  <h2>날짜별 동선 지도</h2>
+  <p class="lead">식당·목적지를 탭하면 <b>지도 동선과 거리·이동시간이 바로 바뀌어요.</b> 선택 결과는 맨 아래 예상 비용·총 이동시간에도 실시간 반영됩니다.</p>
+  <input class="pdr" type="radio" name="pday" id="pd1" checked>
+  <input class="pdr" type="radio" name="pday" id="pd2">
+  <input class="pdr" type="radio" name="pday" id="pd3">
+  <div class="ptabs">
+    <label for="pd1">Day 1 · 금</label>
+    <label for="pd2">Day 2 · 토</label>
+    <label for="pd3">Day 3 · 일</label>
+  </div>
+  <div class="pday" id="pday-d1">
+    <div class="pmap">
+      <svg id="map-d1" viewBox="0 0 420 560" xmlns="http://www.w3.org/2000/svg" aria-label="Day1 동선 지도"><rect width="420" height="560" fill="#f2ecdd"></rect><path d="M 118 20 C 150 90 170 150 205 205 C 240 260 300 300 322 330 C 345 362 352 420 356 470 C 359 505 362 535 364 560 L 420 560 L 420 20 Z" fill="#bfe0ec"></path><path d="M 118 20 C 150 90 170 150 205 205 C 240 260 300 300 322 330 C 345 362 352 420 356 470 C 359 505 362 535 364 560 L 420 560 L 420 20 Z" fill="none" stroke="#8ec6da" stroke-width="3" opacity="0.7"></path><path d="M 371 80 q 7 -5 14 0 q 7 5 14 0" stroke="#eaf6fa" stroke-width="2.5" fill="none" stroke-linecap="round"></path><path d="M 381 200 q 7 -5 14 0 q 7 5 14 0" stroke="#eaf6fa" stroke-width="2.5" fill="none" stroke-linecap="round"></path><path d="M 386 340 q 7 -5 14 0 q 7 5 14 0" stroke="#eaf6fa" stroke-width="2.5" fill="none" stroke-linecap="round"></path><path d="M 384 470 q 7 -5 14 0 q 7 5 14 0" stroke="#eaf6fa" stroke-width="2.5" fill="none" stroke-linecap="round"></path><text x="396" y="52" text-anchor="middle" font-size="13" font-weight="800" fill="#5c9ab0">동</text><text x="396" y="70" text-anchor="middle" font-size="13" font-weight="800" fill="#5c9ab0">해</text><text x="396" y="88" text-anchor="middle" font-size="13" font-weight="800" fill="#5c9ab0">바</text><text x="396" y="106" text-anchor="middle" font-size="13" font-weight="800" fill="#5c9ab0">다</text><ellipse cx="270" cy="290" rx="26" ry="13" fill="#cfe8f0" stroke="#9fcfdd" stroke-width="1.5"></ellipse><text x="270" y="279" text-anchor="middle" font-size="8.5" fill="#5c9ab0">경포호</text><path d="M 150 30 C 185 110 215 180 250 250 C 280 310 268 380 250 450 C 242 485 238 520 236 555" stroke="#e4d9c2" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.8"></path><path d="M 30 534 C 90 505 150 480 210 452" stroke="#d8cbb2" stroke-width="5" fill="none" stroke-dasharray="2 7" stroke-linecap="round"></path><path d="M26 542 L238.5733333333097 346.26666666666944 L274.61333333334517 304.266666666668" fill="none" stroke="#ff6b57" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 6" opacity="0.95"></path><text x="132.28666666665487" y="438.1333333333347" text-anchor="middle" font-size="10" font-weight="800" fill="#c93d2b" stroke="#fff" stroke-width="3" paint-order="stroke">228km·2h50m</text><text x="256.59333333332745" y="319.2666666666687" text-anchor="middle" font-size="10" font-weight="800" fill="#c93d2b" stroke="#fff" stroke-width="3" paint-order="stroke">3km·6분</text><circle cx="26" cy="542" r="8" fill="#0f3b57" stroke="#fff" stroke-width="2.5"></circle><text x="40" y="530" text-anchor="start" font-size="10.5" font-weight="800" fill="#20303c" stroke="#fdf8f0" stroke-width="3" paint-order="stroke">수원(집)</text><circle cx="238.5733333333097" cy="346.26666666666944" r="6" fill="#ff6b57" stroke="#fff" stroke-width="2.5"></circle><text x="184.5733333333097" y="350.26666666666944" text-anchor="end" font-size="10.5" font-weight="800" fill="#20303c" stroke="#fdf8f0" stroke-width="3" paint-order="stroke">엄지네포장마차</text><circle cx="274.61333333334517" cy="304.266666666668" r="8" fill="#0f3b57" stroke="#fff" stroke-width="2.5"></circle><text x="282.61333333334517" y="292.266666666668" text-anchor="start" font-size="10.5" font-weight="800" fill="#20303c" stroke="#fdf8f0" stroke-width="3" paint-order="stroke">라카이샌드파인</text><text x="26" y="530" text-anchor="middle" font-size="12">🚩</text></svg>
+      <div class="pnote">※ 위치·도로는 이해를 돕기 위한 개념도이며, 거리·시간은 실주행 기준 추정치입니다. 출발 전 내비게이션으로 확인하세요.</div>
+    </div>
+    <div class="pselect" id="sel-d1"><div class="pslot"><div class="pl">🍽️ 금 저녁 <span>19:00</span></div><div class="pchips"><button data-slot="fri_dinner" data-opt="eomji" class="sel">엄지네포장마차</button><button data-slot="fri_dinner" data-opt="haeseong" class="">해성횟집</button><button data-slot="fri_dinner" data-opt="gamja" class="">감자적1번지</button><button data-slot="fri_dinner" data-opt="gyeongpo" class="">경포 회센터(포장)</button></div>
+        <div class="pinfo">⏳ 예상 대기 <b>60~90분</b> · 📱 테이블링 원격 줄서기(진입 30분 전 필수) · 💳 4인 약 <b>7만원</b></div></div></div>
+    <div class="plegs" id="legs-d1"><h4>🛣️ Day 1 · 금 이동 구간</h4><div class="leg"><span class="lr">수원 → 강릉 (영동선·금 오후 정체 포함)</span><span class="lv">228km · 2시간 50분</span></div><div class="leg"><span class="lr">엄지네포장마차 → 라카이샌드파인</span><span class="lv">3km · 6분</span></div>
+      <div class="dsum">이날 운전 합계 — 약 231km · 2시간 56분</div></div>
+  </div>
+  <div class="pday" id="pday-d2">
+    <div class="pmap">
+      <svg id="map-d2" viewBox="0 0 420 560" xmlns="http://www.w3.org/2000/svg" aria-label="Day2 동선 지도"><rect width="420" height="560" fill="#f2ecdd"></rect><path d="M 118 20 C 150 90 170 150 205 205 C 240 260 300 300 322 330 C 345 362 352 420 356 470 C 359 505 362 535 364 560 L 420 560 L 420 20 Z" fill="#bfe0ec"></path><path d="M 118 20 C 150 90 170 150 205 205 C 240 260 300 300 322 330 C 345 362 352 420 356 470 C 359 505 362 535 364 560 L 420 560 L 420 20 Z" fill="none" stroke="#8ec6da" stroke-width="3" opacity="0.7"></path><path d="M 371 80 q 7 -5 14 0 q 7 5 14 0" stroke="#eaf6fa" stroke-width="2.5" fill="none" stroke-linecap="round"></path><path d="M 381 200 q 7 -5 14 0 q 7 5 14 0" stroke="#eaf6fa" stroke-width="2.5" fill="none" stroke-linecap="round"></path><path d="M 386 340 q 7 -5 14 0 q 7 5 14 0" stroke="#eaf6fa" stroke-width="2.5" fill="none" stroke-linecap="round"></path><path d="M 384 470 q 7 -5 14 0 q 7 5 14 0" stroke="#eaf6fa" stroke-width="2.5" fill="none" stroke-linecap="round"></path><text x="396" y="52" text-anchor="middle" font-size="13" font-weight="800" fill="#5c9ab0">동</text><text x="396" y="70" text-anchor="middle" font-size="13" font-weight="800" fill="#5c9ab0">해</text><text x="396" y="88" text-anchor="middle" font-size="13" font-weight="800" fill="#5c9ab0">바</text><text x="396" y="106" text-anchor="middle" font-size="13" font-weight="800" fill="#5c9ab0">다</text><ellipse cx="270" cy="290" rx="26" ry="13" fill="#cfe8f0" stroke="#9fcfdd" stroke-width="1.5"></ellipse><text x="270" y="279" text-anchor="middle" font-size="8.5" fill="#5c9ab0">경포호</text><path d="M 150 30 C 185 110 215 180 250 250 C 280 310 268 380 250 450 C 242 485 238 520 236 555" stroke="#e4d9c2" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.8"></path><path d="M 30 534 C 90 505 150 480 210 452" stroke="#d8cbb2" stroke-width="5" fill="none" stroke-dasharray="2 7" stroke-linecap="round"></path><path d="M274.61333333334517 304.266666666668 L248.09333333330326 292.36666666667094 L274.61333333334517 304.266666666668 L255.7999999999678 303.3333333333369 L203.6666666666452 506.3333333333272 L81.04000000003543 63.9333333333321 L274.61333333334517 304.266666666668" fill="none" stroke="#ff6b57" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 6" opacity="0.95"></path><text x="261.3533333333242" y="292.31666666666945" text-anchor="middle" font-size="10" font-weight="800" fill="#c93d2b" stroke="#fff" stroke-width="3" paint-order="stroke">2km·4분</text><text x="261.3533333333242" y="292.31666666666945" text-anchor="middle" font-size="10" font-weight="800" fill="#c93d2b" stroke="#fff" stroke-width="3" paint-order="stroke">2km·4분</text><text x="265.2066666666565" y="297.80000000000246" text-anchor="middle" font-size="10" font-weight="800" fill="#c93d2b" stroke="#fff" stroke-width="3" paint-order="stroke">1km·4분</text><text x="229.73333333330652" y="398.833333333332" text-anchor="middle" font-size="10" font-weight="800" fill="#c93d2b" stroke="#fff" stroke-width="3" paint-order="stroke">13km·15분</text><text x="142.35333333334032" y="279.13333333332963" text-anchor="middle" font-size="10" font-weight="800" fill="#c93d2b" stroke="#fff" stroke-width="3" paint-order="stroke">29km·32분</text><text x="177.8266666666903" y="178.10000000000005" text-anchor="middle" font-size="10" font-weight="800" fill="#c93d2b" stroke="#fff" stroke-width="3" paint-order="stroke">18km·20분</text><circle cx="274.61333333334517" cy="304.266666666668" r="8" fill="#0f3b57" stroke="#fff" stroke-width="2.5"></circle><text x="282.61333333334517" y="292.266666666668" text-anchor="start" font-size="10.5" font-weight="800" fill="#20303c" stroke="#fdf8f0" stroke-width="3" paint-order="stroke">라카이샌드파인</text><circle cx="248.09333333330326" cy="292.36666666667094" r="6" fill="#ff6b57" stroke="#fff" stroke-width="2.5"></circle><text x="208.09333333330326" y="284.36666666667094" text-anchor="end" font-size="10.5" font-weight="800" fill="#20303c" stroke="#fdf8f0" stroke-width="3" paint-order="stroke">동화가든</text><circle cx="255.7999999999678" cy="303.3333333333369" r="6" fill="#ff6b57" stroke="#fff" stroke-width="2.5"></circle><text x="203.7999999999678" y="319.3333333333369" text-anchor="end" font-size="10.5" font-weight="800" fill="#20303c" stroke="#fdf8f0" stroke-width="3" paint-order="stroke">초당두부마을</text><circle cx="203.6666666666452" cy="506.3333333333272" r="6" fill="#ff6b57" stroke="#fff" stroke-width="2.5"></circle><text x="203.6666666666452" y="526.3333333333271" text-anchor="middle" font-size="10.5" font-weight="800" fill="#20303c" stroke="#fdf8f0" stroke-width="3" paint-order="stroke">테라로사 커피공장</text><circle cx="81.04000000003543" cy="63.9333333333321" r="6" fill="#ff6b57" stroke="#fff" stroke-width="2.5"></circle><text x="87.04000000003543" y="50.9333333333321" text-anchor="middle" font-size="10.5" font-weight="800" fill="#20303c" stroke="#fdf8f0" stroke-width="3" paint-order="stroke">주문진항 수산시장</text><text x="274.61333333334517" y="292.266666666668" text-anchor="middle" font-size="12">🚩</text></svg>
+      <div class="pnote">※ 위치·도로는 개념도이며 거리·시간은 추정치입니다.</div>
+    </div>
+    <div class="pselect" id="sel-d2"><div class="pslot"><div class="pl">🍽️ 토 아침 <span>08:00</span></div><div class="pchips"><button data-slot="sat_break" data-opt="donghwa" class="sel">동화가든</button><button data-slot="sat_break" data-opt="tobagi" class="">토박이할머니순두부</button><button data-slot="sat_break" data-opt="yeongok" class="">연곡꾹저구탕</button></div>
+        <div class="pinfo">⏳ 예상 대기 <b>오픈 직후 10~20분 (9시 이후 60분+)</b> · 📱 테이블링 웨이팅 · 💳 4인 약 <b>5만원</b></div></div><div class="pslot"><div class="pl">🍽️ 토 점심 <span>12:30</span></div><div class="pchips"><button data-slot="sat_lunch" data-opt="chodang" class="sel">초당두부마을</button><button data-slot="sat_lunch" data-opt="hyungje" class="">형제칼국수</button><button data-slot="sat_lunch" data-opt="seoji" class="">서지초가뜰</button></div>
+        <div class="pinfo">⏳ 예상 대기 <b>20~30분</b> · 📱 매장별 현장 대기 · 💳 4인 약 <b>6.6만원</b></div></div><div class="pslot"><div class="pl">🍽️ 토 카페 <span>16:30</span></div><div class="pchips"><button data-slot="sat_cafe" data-opt="terarosa" class="sel">테라로사 커피공장</button><button data-slot="sat_cafe" data-opt="bohemian" class="">보헤미안 박이추</button><button data-slot="sat_cafe" data-opt="myeongju" class="">명주동 골목카페</button></div>
+        <div class="pinfo">⏳ 예상 대기 <b>주문 줄 ~10분</b> · 📱 예약 불필요 · 💳 4인 약 <b>3만원</b></div></div><div class="pslot"><div class="pl">🍽️ 토 저녁 <span>18:30</span></div><div class="pchips"><button data-slot="sat_dinner" data-opt="jumunjin" class="sel">주문진항 수산시장</button><button data-slot="sat_dinner" data-opt="mimine" class="">미미네횟집</button><button data-slot="sat_dinner" data-opt="wonjo" class="">원조집(생선구이)</button><button data-slot="sat_dinner" data-opt="jangan" class="">장안횟집(사천진)</button><button data-slot="sat_dinner" data-opt="gangmun" class="">강문 횟집거리(도보)</button></div>
+        <div class="pinfo">⏳ 예상 대기 <b>초장집 10~20분</b> · 📱 예약 불필요(초장집 전화 가능) · 💳 4인 약 <b>12만원</b></div></div><div class="pinfo" style="margin-top: 0px;">🏊 아침 식사 후 리조트로 돌아와 인피니티풀·해변 물놀이(이동 없음), 오후에 점심→카페→저녁 순회</div></div>
+    <div class="plegs" id="legs-d2"><h4>🛣️ Day 2 · 토 이동 구간</h4><div class="leg"><span class="lr">라카이샌드파인 → 동화가든</span><span class="lv">2km · 4분</span></div><div class="leg"><span class="lr">동화가든 → 라카이샌드파인</span><span class="lv">2km · 4분</span></div><div class="leg"><span class="lr">라카이샌드파인 → 초당두부마을</span><span class="lv">1km · 4분</span></div><div class="leg"><span class="lr">초당두부마을 → 테라로사 커피공장</span><span class="lv">13km · 15분</span></div><div class="leg"><span class="lr">테라로사 커피공장 → 주문진항 수산시장</span><span class="lv">29km · 32분</span></div><div class="leg"><span class="lr">주문진항 수산시장 → 라카이샌드파인</span><span class="lv">18km · 20분</span></div>
+      <div class="dsum">이날 운전 합계 — 약 65km · 1시간 19분</div></div>
+  </div>
+  <div class="pday" id="pday-d3">
+    <div class="pmap">
+      <svg id="map-d3" viewBox="0 0 420 560" xmlns="http://www.w3.org/2000/svg" aria-label="Day3 동선 지도"><rect width="420" height="560" fill="#f2ecdd"></rect><path d="M 118 20 C 150 90 170 150 205 205 C 240 260 300 300 322 330 C 345 362 352 420 356 470 C 359 505 362 535 364 560 L 420 560 L 420 20 Z" fill="#bfe0ec"></path><path d="M 118 20 C 150 90 170 150 205 205 C 240 260 300 300 322 330 C 345 362 352 420 356 470 C 359 505 362 535 364 560 L 420 560 L 420 20 Z" fill="none" stroke="#8ec6da" stroke-width="3" opacity="0.7"></path><path d="M 371 80 q 7 -5 14 0 q 7 5 14 0" stroke="#eaf6fa" stroke-width="2.5" fill="none" stroke-linecap="round"></path><path d="M 381 200 q 7 -5 14 0 q 7 5 14 0" stroke="#eaf6fa" stroke-width="2.5" fill="none" stroke-linecap="round"></path><path d="M 386 340 q 7 -5 14 0 q 7 5 14 0" stroke="#eaf6fa" stroke-width="2.5" fill="none" stroke-linecap="round"></path><path d="M 384 470 q 7 -5 14 0 q 7 5 14 0" stroke="#eaf6fa" stroke-width="2.5" fill="none" stroke-linecap="round"></path><text x="396" y="52" text-anchor="middle" font-size="13" font-weight="800" fill="#5c9ab0">동</text><text x="396" y="70" text-anchor="middle" font-size="13" font-weight="800" fill="#5c9ab0">해</text><text x="396" y="88" text-anchor="middle" font-size="13" font-weight="800" fill="#5c9ab0">바</text><text x="396" y="106" text-anchor="middle" font-size="13" font-weight="800" fill="#5c9ab0">다</text><ellipse cx="270" cy="290" rx="26" ry="13" fill="#cfe8f0" stroke="#9fcfdd" stroke-width="1.5"></ellipse><text x="270" y="279" text-anchor="middle" font-size="8.5" fill="#5c9ab0">경포호</text><path d="M 150 30 C 185 110 215 180 250 250 C 280 310 268 380 250 450 C 242 485 238 520 236 555" stroke="#e4d9c2" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.8"></path><path d="M 30 534 C 90 505 150 480 210 452" stroke="#d8cbb2" stroke-width="5" fill="none" stroke-dasharray="2 7" stroke-linecap="round"></path><path d="M274.61333333334517 304.266666666668 L231.54666666666776 385.9333333333264 L26 542" fill="none" stroke="#ff6b57" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 6" opacity="0.95"></path><text x="253.08000000000646" y="339.0999999999972" text-anchor="middle" font-size="10" font-weight="800" fill="#c93d2b" stroke="#fff" stroke-width="3" paint-order="stroke">6km·11분</text><text x="128.77333333333388" y="457.9666666666632" text-anchor="middle" font-size="10" font-weight="800" fill="#c93d2b" stroke="#fff" stroke-width="3" paint-order="stroke">232km·2h55m</text><circle cx="274.61333333334517" cy="304.266666666668" r="8" fill="#0f3b57" stroke="#fff" stroke-width="2.5"></circle><text x="282.61333333334517" y="292.266666666668" text-anchor="start" font-size="10.5" font-weight="800" fill="#20303c" stroke="#fdf8f0" stroke-width="3" paint-order="stroke">라카이샌드파인</text><circle cx="231.54666666666776" cy="385.9333333333264" r="6" fill="#ff6b57" stroke="#fff" stroke-width="2.5"></circle><text x="231.54666666666776" y="407.9333333333264" text-anchor="middle" font-size="10.5" font-weight="800" fill="#20303c" stroke="#fdf8f0" stroke-width="3" paint-order="stroke">강릉 중앙시장</text><circle cx="26" cy="542" r="8" fill="#0f3b57" stroke="#fff" stroke-width="2.5"></circle><text x="40" y="530" text-anchor="start" font-size="10.5" font-weight="800" fill="#20303c" stroke="#fdf8f0" stroke-width="3" paint-order="stroke">수원(집)</text><text x="274.61333333334517" y="292.266666666668" text-anchor="middle" font-size="12">🚩</text></svg>
+      <div class="pnote">※ 위치·도로는 개념도이며 거리·시간은 추정치입니다.</div>
+    </div>
+    <div class="pselect" id="sel-d3"><div class="pslot"><div class="pl">🍽️ 일 점심 <span>11:30</span></div><div class="pchips"><button data-slot="sun_lunch" data-opt="market" class="sel">강릉 중앙시장</button><button data-slot="sun_lunch" data-opt="hyundai" class="">현대장칼국수</button><button data-slot="sun_lunch" data-opt="samgyori" class="">삼교리동치미막국수</button><button data-slot="sun_lunch" data-opt="haeseong" class="">해성횟집</button></div>
+        <div class="pinfo">⏳ 예상 대기 <b>가게별 10~30분</b> · 📱 현장 (배니닭강정·어묵고로케) · 💳 4인 약 <b>5만원</b></div></div></div>
+    <div class="plegs" id="legs-d3"><h4>🛣️ Day 3 · 일 이동 구간</h4><div class="leg"><span class="lr">라카이샌드파인 → 강릉 중앙시장</span><span class="lv">6km · 11분</span></div><div class="leg"><span class="lr">강릉 → 수원 (일 오후·휴게소 1회 포함)</span><span class="lv">232km · 2시간 55분</span></div>
+      <div class="dsum">이날 운전 합계 — 약 238km · 3시간 6분</div></div>
+  </div>
+
+  <div class="budget" id="budget">
+    <h3>💰 예상 비용 & 총 이동시간</h3>
+    <div class="sub">아래 금액은 4인 가족 기준 추정치 — 위에서 식당을 바꾸면 자동으로 다시 계산됩니다.</div>
+    <div id="brows">
+      <div class="brow stay"><span>🏨 숙박 (라카이샌드파인 2박)</span><b><input id="stayIn" type="number" min="0" value="80"> 만원</b></div>
+      <div class="brow"><span>🍽️ 식사 6끼 (선택 기준·4인)</span><b>약 38.6만원</b></div>
+      <div class="brow"><span>🍿 휴게소·시장 간식·주전부리</span><b>약 4.5만원</b></div>
+      <div class="brow"><span>🛣️ 고속도로 통행료 (왕복)</span><b>약 2.2만원</b></div>
+      <div class="brow"><span>⚡ 모델Y 충전 (왕복+현지)</span><b>약 3만원</b></div>
+      <div class="brow total"><span>💰 예상 총 비용</span><b>약 128.3만원</b></div>
+      <div class="brow total"><span>🚗 3일 총 운전</span><b>약 534km · 7시간 21분</b></div></div>
+    <div class="foot">🚗 통행료는 영동선 왕복 승용차 기준, 충전비는 모델Y 왕복 약 460km + 현지 주행분 급속충전 기준 추정입니다. 숙박비는 성수기 주말 객실 타입에 따라 차이가 크니 예약 금액으로 직접 조정해 보세요(만원 단위).</div>
+  </div>
+</section>
+
+<!-- ═══════════ FOODS ═══════════ -->
+<section id="foods">
+  <span class="kicker">GANGNEUNG EATS</span>
+  <h2>이번 여행 먹거리 라인업</h2>
+  <p class="lead">해산물·회 중심으로, 아이들도 좋아할 메뉴를 사이사이에. 전부 리조트에서 차로 5~20분 거리입니다.</p>
+  <div class="foods">
+
+    <div class="food"><div class="art">
+      <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" aria-label="모듬회">
+        <rect width="400" height="240" fill="#e9f4f8"/>
+        <ellipse cx="200" cy="140" rx="150" ry="72" fill="#fff"/>
+        <ellipse cx="200" cy="136" rx="138" ry="62" fill="#f2f7f9"/>
+        <g><rect x="100" y="110" width="52" height="26" rx="6" fill="#ff9e80"/><rect x="100" y="118" width="52" height="4" fill="#fff" opacity=".8"/>
+        <rect x="160" y="102" width="52" height="26" rx="6" fill="#f7cfd4"/><rect x="160" y="110" width="52" height="4" fill="#fff" opacity=".8"/>
+        <rect x="220" y="110" width="52" height="26" rx="6" fill="#fff1f0"/><rect x="220" y="118" width="52" height="4" fill="#f3b8ad" opacity=".8"/>
+        <rect x="130" y="142" width="52" height="26" rx="6" fill="#ffb28a"/><rect x="130" y="150" width="52" height="4" fill="#fff" opacity=".8"/>
+        <rect x="192" y="142" width="52" height="26" rx="6" fill="#f9dade"/><rect x="192" y="150" width="52" height="4" fill="#fff" opacity=".8"/></g>
+        <g fill="#2f7d4f"><ellipse cx="285" cy="128" rx="16" ry="8" transform="rotate(-25 285 128)"/><ellipse cx="298" cy="140" rx="16" ry="8" transform="rotate(-10 298 140)"/></g>
+        <circle cx="118" cy="158" r="9" fill="#e8b64c"/><circle cx="118" cy="158" r="4" fill="#f6d98a"/>
+        <g stroke="#c96a2d" stroke-width="5" stroke-linecap="round"><line x1="330" y1="70" x2="352" y2="150"/><line x1="344" y1="68" x2="366" y2="148"/></g>
+      </svg></div>
+      <div class="txt"><b>모듬회 & 물회</b><span class="where">📍 주문진항 수산시장 · 토 저녁</span>
+      <p>1층에서 싱싱한 회 떠서 2층 초장집으로. 새콤한 물회는 아이들도 술술!</p></div></div>
+
+    <div class="food"><div class="art">
+      <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" aria-label="꼬막비빔밥">
+        <rect width="400" height="240" fill="#fdeee6"/>
+        <path d="M110 130 h180 q0 62 -90 62 q-90 0 -90 -62" fill="#3b4a56"/>
+        <ellipse cx="200" cy="130" rx="90" ry="26" fill="#4a5a66"/>
+        <ellipse cx="200" cy="128" rx="80" ry="21" fill="#f5f0e6"/>
+        <g fill="#7a4a3a"><ellipse cx="170" cy="120" rx="17" ry="11"/><ellipse cx="205" cy="114" rx="17" ry="11"/><ellipse cx="238" cy="122" rx="17" ry="11"/><ellipse cx="187" cy="132" rx="17" ry="11"/><ellipse cx="222" cy="134" rx="17" ry="11"/></g>
+        <g stroke="#a86a52" stroke-width="2" fill="none" opacity=".8"><path d="M158 118 q12 -8 24 0"/><path d="M193 112 q12 -8 24 0"/><path d="M226 120 q12 -8 24 0"/></g>
+        <g fill="#2f7d4f" opacity=".9"><rect x="165" y="105" width="14" height="4" rx="2" transform="rotate(20 172 107)"/><rect x="228" y="108" width="14" height="4" rx="2" transform="rotate(-15 235 110)"/><rect x="196" y="128" width="14" height="4" rx="2"/></g>
+        <circle cx="200" cy="100" r="13" fill="#ffce4a"/><circle cx="200" cy="100" r="7" fill="#ff9e2c"/>
+        <g stroke="#c9c2b2" stroke-width="5" stroke-linecap="round"><line x1="316" y1="60" x2="316" y2="150"/><path d="M330 60 v40 q0 10 10 10 t10 -10 v-40 M340 60 v50" stroke-width="4.5"/></g>
+      </svg></div>
+      <div class="txt"><b>꼬막무침 & 꼬막비빔밥</b><span class="where">📍 엄지네포장마차 본점 · 금 저녁</span>
+      <p>간장 양념 꼬막을 밥에 쓱쓱 — 강릉에서 가장 줄 긴 집. 원격 줄서기가 핵심!</p></div></div>
+
+    <div class="food"><div class="art">
+      <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" aria-label="짬뽕순두부">
+        <rect width="400" height="240" fill="#fff1e2"/>
+        <path d="M105 118 h190 q0 70 -95 70 q-95 0 -95 -70" fill="#2d3a44"/>
+        <ellipse cx="200" cy="118" rx="95" ry="28" fill="#3a4a55"/>
+        <ellipse cx="200" cy="116" rx="84" ry="23" fill="#e8503c"/>
+        <g fill="#fff" opacity=".95"><ellipse cx="175" cy="110" rx="20" ry="12"/><ellipse cx="215" cy="118" rx="22" ry="13"/><ellipse cx="195" cy="126" rx="16" ry="9"/></g>
+        <g fill="#ffb020"><circle cx="152" cy="118" r="5"/><circle cx="245" cy="108" r="5"/><circle cx="238" cy="126" r="4"/></g>
+        <g fill="#2f7d4f"><rect x="185" y="98" width="16" height="4" rx="2" transform="rotate(15 193 100)"/><rect x="222" y="100" width="14" height="4" rx="2" transform="rotate(-20 229 102)"/></g>
+        <!-- steam -->
+        <g stroke="#e0a98e" stroke-width="5" fill="none" stroke-linecap="round" opacity=".7">
+          <path d="M160 72 q-8 -14 2 -26"/><path d="M200 66 q-8 -14 2 -26"/><path d="M240 72 q-8 -14 2 -26"/>
+        </g>
+      </svg></div>
+      <div class="txt"><b>짬뽕순두부</b><span class="where">📍 동화가든 본점 · 토 아침</span>
+      <p>초당 원조 짬순. 부들부들 순두부 + 얼큰 국물, 아침 일찍 가야 웨이팅 프리.</p></div></div>
+
+    <div class="food"><div class="art">
+      <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" aria-label="초당순두부와 순두부젤라또">
+        <rect width="400" height="240" fill="#eef5ee"/>
+        <path d="M80 120 h150 q0 58 -75 58 q-75 0 -75 -58" fill="#d8c9a8"/>
+        <ellipse cx="155" cy="120" rx="75" ry="22" fill="#e6dabb"/>
+        <ellipse cx="155" cy="118" rx="65" ry="18" fill="#fdfaf2"/>
+        <g fill="#fff" stroke="#e3ddcd" stroke-width="2"><rect x="125" y="104" width="28" height="20" rx="5"/><rect x="158" y="110" width="26" height="18" rx="5"/></g>
+        <g fill="#2f7d4f" opacity=".85"><rect x="140" y="100" width="13" height="4" rx="2"/><rect x="170" y="106" width="12" height="4" rx="2" transform="rotate(18 176 108)"/></g>
+        <!-- gelato cone -->
+        <g transform="translate(280,60)">
+          <path d="M0 70 l32 96 l32 -96 Z" fill="#e8b06a"/>
+          <g stroke="#c98d43" stroke-width="3" opacity=".7"><line x1="6" y1="84" x2="58" y2="120"/><line x1="2" y1="106" x2="48" y2="140"/><line x1="14" y1="72" x2="62" y2="105"/></g>
+          <circle cx="32" cy="48" r="36" fill="#fdfaf2"/>
+          <circle cx="14" cy="34" r="7" fill="#fff"/>
+          <path d="M20 18 q12 -14 24 0" stroke="#e3ddcd" stroke-width="3" fill="none"/>
+        </g>
+      </svg></div>
+      <div class="txt"><b>초당순두부 & 순두부젤라또</b><span class="where">📍 초당두부마을 · 토 점심</span>
+      <p>리조트 옆동네. 담백한 두부전골 후 디저트는 고소한 순두부젤라또.</p></div></div>
+
+    <div class="food"><div class="art">
+      <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" aria-label="강릉 커피">
+        <rect width="400" height="240" fill="#f1e6d8"/>
+        <rect y="150" width="400" height="90" fill="#0e7490" opacity=".18"/>
+        <path d="M120 92 h140 v58 q0 40 -70 40 t-70 -40 Z" fill="#fff"/>
+        <path d="M120 92 h140 v14 h-140 Z" fill="#f3ece2"/>
+        <path d="M132 104 h116 v44 q0 30 -58 30 t-58 -30 Z" fill="#6b4226"/>
+        <ellipse cx="190" cy="106" rx="58" ry="10" fill="#8a5a35"/>
+        <path d="M162 104 q14 10 40 4" stroke="#d8b48e" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path d="M260 108 q40 -4 38 26 q-2 26 -40 22" fill="none" stroke="#fff" stroke-width="12"/>
+        <g stroke="#a8836b" stroke-width="5" fill="none" stroke-linecap="round" opacity=".7">
+          <path d="M162 66 q-8 -14 2 -24"/><path d="M196 60 q-8 -14 2 -24"/><path d="M228 66 q-8 -14 2 -24"/>
+        </g>
+        <g fill="#6b4226"><ellipse cx="90" cy="205" rx="9" ry="12"/><path d="M90 196 q3 9 0 18" stroke="#f1e6d8" stroke-width="2"/><ellipse cx="118" cy="212" rx="9" ry="12" transform="rotate(30 118 212)"/><ellipse cx="300" cy="208" rx="9" ry="12" transform="rotate(-20 300 208)"/></g>
+      </svg></div>
+      <div class="txt"><b>강릉 커피 & 베이커리</b><span class="where">📍 테라로사 커피공장 본점 · 토 오후</span>
+      <p>커피의 도시 강릉! 로스터리 원두향 가득한 공장 카페에서 커피와 갓 구운 빵.</p></div></div>
+
+    <div class="food"><div class="art">
+      <svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg" aria-label="닭강정과 시장 간식">
+        <rect width="400" height="240" fill="#fdeedd"/>
+        <path d="M92 96 h216 l-16 118 h-184 Z" fill="#e8503c"/>
+        <path d="M92 96 h216 l-4 30 h-208 Z" fill="#c93d2b"/>
+        <rect x="120" y="60" width="160" height="44" rx="10" fill="#fff" opacity=".92"/>
+        <g fill="#e8963c" stroke="#c9752b" stroke-width="2">
+          <circle cx="150" cy="150" r="20"/><circle cx="194" cy="140" r="21"/><circle cx="240" cy="152" r="20"/>
+          <circle cx="170" cy="182" r="19"/><circle cx="216" cy="184" r="19"/><circle cx="252" cy="186" r="16"/>
+        </g>
+        <g fill="#fff"><circle cx="146" cy="142" r="2.6"/><circle cx="158" cy="152" r="2.6"/><circle cx="190" cy="134" r="2.6"/><circle cx="202" cy="146" r="2.6"/><circle cx="238" cy="146" r="2.6"/><circle cx="168" cy="176" r="2.6"/><circle cx="220" cy="178" r="2.6"/></g>
+        <g fill="#2f7d4f"><rect x="180" y="120" width="14" height="4" rx="2" transform="rotate(20 187 122)"/><rect x="228" y="128" width="13" height="4" rx="2" transform="rotate(-15 234 130)"/></g>
+        <text x="200" y="90" text-anchor="middle" font-family="Pretendard,sans-serif" font-size="22" font-weight="800" fill="#c93d2b">중앙시장</text>
+      </svg></div>
+      <div class="txt"><b>닭강정 · 오징어순대 · 어묵고로케</b><span class="where">📍 강릉 중앙시장 · 일 점심</span>
+      <p>마지막 날 먹거리 투어. 귀가길 차 안 간식까지 넉넉하게 포장!</p></div></div>
+
+  </div>
+
+  <div class="season">
+    <h3>🐟 8월 말 제철 회 치트시트</h3>
+    <div class="sub">횟집에서 뭘 시킬지 고민될 때 — 지금 기름 오른 순서대로 골라보세요.</div>
+    <div class="fishes">
+      <div class="fish">
+        <svg viewBox="0 0 44 34"><g fill="#f4dede"><ellipse cx="20" cy="17" rx="13" ry="7"/><path d="M20 10 L26 2 L29 10 Z"/><path d="M8 17 l-7 -6 v12 Z"/><g stroke="#f4dede" stroke-width="2.5" stroke-linecap="round"><line x1="30" y1="20" x2="40" y2="26"/><line x1="32" y1="17" x2="43" y2="20"/><line x1="30" y1="14" x2="40" y2="10"/></g></g><circle cx="24" cy="15" r="1.6" fill="#0f3b57"/></svg>
+        <div><b>살오징어 <em class="hot">지금이 절정</em></b><p>동해 여름~가을 대표. 주문진 오징어회·물회는 이 시기가 1년 중 최고.</p></div>
+      </div>
+      <div class="fish">
+        <svg viewBox="0 0 44 34"><ellipse cx="20" cy="18" rx="15" ry="8" fill="#cfe3ee"/><path d="M33 18 l9 -6 v12 Z" fill="#cfe3ee"/><path d="M14 11 q6 -6 12 0" fill="#a9c8da"/><circle cx="10" cy="16" r="1.7" fill="#0f3b57"/></svg>
+        <div><b>농어 <em class="hot">여름 제철</em></b><p>여름 흰살 회의 왕. 6~8월 기름이 올라 단맛이 도는 시기 — 보이면 무조건.</p></div>
+      </div>
+      <div class="fish">
+        <svg viewBox="0 0 44 34"><path d="M3 22 q10 -12 20 -6 q10 6 18 -2 q-2 8 -10 10 q-14 4 -28 -2" fill="#d8cfa8"/><circle cx="8" cy="18" r="1.5" fill="#0f3b57"/></svg>
+        <div><b>붕장어(아나고) <em class="hot">여름 제철</em></b><p>고소하고 쫄깃한 여름 별미. 회로도, 구이로도 지금이 맛있을 때.</p></div>
+      </div>
+      <div class="fish">
+        <svg viewBox="0 0 44 34"><ellipse cx="20" cy="18" rx="14" ry="6.5" fill="#cdd8e8"/><path d="M32 18 l9 -5 v10 Z" fill="#cdd8e8"/><g stroke="#9fb2c9" stroke-width="1.5"><line x1="12" y1="13" x2="12" y2="23"/><line x1="17" y1="12" x2="17" y2="24"/><line x1="22" y1="12" x2="22" y2="24"/></g><circle cx="9" cy="16" r="1.5" fill="#0f3b57"/></svg>
+        <div><b>전어 <em class="mid">초입 시작</em></b><p>"가을 전어"의 시작점. 8월 말 초벌 전어가 나와 있으면 맛보기로 한 접시.</p></div>
+      </div>
+    </div>
+    <div class="foot">💡 참고 — 광어·방어는 겨울, 참가자미는 봄이 절정이라 이번엔 후순위. 민어(여름 보양 회)는 주산지가 서남해라 강릉에선 만나기 어려워요. 물회는 오징어+잡어 조합이 정석!</div>
+  </div>
+</section>
+
+<!-- ═══════════ MEAL PICKER ═══════════ -->
+<section id="picker">
+  <span class="kicker">PICK & CHOOSE</span>
+  <h2>끼니별 맛집 선택지</h2>
+  <p class="lead">그날 컨디션과 웨이팅 상황에 따라 골라 가세요. <b style="color:var(--coral)">1픽</b>은 기본 일정에 넣은 곳, <b style="color:var(--ocean)">대안</b>은 분위기·대기시간이 다른 백업 카드, <b style="color:#2f7d4f">로컬</b>은 관광객 줄 없이 현지인들이 찾는 숨은 집입니다.</p>
+  <div class="slots">
+
+    <div class="slot">
+      <div class="slot-head"><span class="em">🌙</span><b>금요일 저녁 — 도착 첫 끼</b><span>리조트 체크인 전후</span></div>
+      <div class="opt pick"><span class="badge">1픽</span><b>엄지네포장마차 본점 <small>꼬막무침·꼬막비빔밥</small></b>
+        <p>강릉 최고 인기집. 이동 중 <b>테이블링 원격 줄서기</b>를 걸어야 성공 확률이 올라가요.</p></div>
+      <div class="opt alt"><span class="badge">대안</span><b>해성횟집 (해성집) <small>삼숙이탕·알탕·회</small></b>
+        <p>중앙시장 옆 40년 현지인 노포. 관광객 줄이 짧아 <b>웨이팅 지쳤을 때 최고의 카드</b> — 얼큰한 삼숙이탕은 어른들 취향 저격.</p></div>
+      <div class="opt alt"><span class="badge">대안</span><b>경포 회센터 모듬회 포장 <small>객실 저녁</small></b>
+        <p>도착이 늦어지면 회 포장해 와서 <b>객실에서 바다 보며 편하게</b>. 아이들 피곤한 날 부담 제로.</p></div>
+      <div class="opt loc"><span class="badge">로컬</span><b>감자적1번지 <small>감자전·감자옹심이</small></b>
+        <p>현지인들이 막걸리와 함께 찾는 수수한 감자적 집. <b>쫀득한 옹심이칼국수</b>는 아이들도 잘 먹고, 첫날 저녁을 소박하게 시작하고 싶을 때 딱.</p></div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-head"><span class="em">🌅</span><b>토요일 아침 — 순두부 배틀</b><span>리조트에서 차 5분</span></div>
+      <div class="opt pick"><span class="badge">1픽</span><b>동화가든 본점 <small>짬뽕순두부</small></b>
+        <p>초당 짬순의 원조. <b>오픈 직후 방문</b>이면 웨이팅 거의 없이 입장.</p></div>
+      <div class="opt alt"><span class="badge">대안</span><b>토박이할머니순두부 <small>순두부백반·전골</small></b>
+        <p>같은 초당마을, 대기가 상대적으로 짧고 <b>담백한 전통 스타일</b>. 얼큰한 게 부담스러운 아침이라면 이쪽.</p></div>
+      <div class="opt loc"><span class="badge">로컬</span><b>연곡꾹저구탕 <small>꾹저구탕·수제비</small></b>
+        <p>연곡면 토박이들의 해장 국물 — 민물고기 <b>꾹저구탕에 수제비</b>를 넣어 얼큰하게. 관광지 웨이팅과 무관한 동네 식당(차 15분, 영업시간은 당일 확인).</p></div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-head"><span class="em">☀️</span><b>토요일 점심 — 수영 후 든든하게</b><span>초당동 일대</span></div>
+      <div class="opt pick"><span class="badge">1픽</span><b>초당두부마을 두부전골 <small>+순두부젤라또</small></b>
+        <p>리조트 옆동네라 이동 부담 최소. 식후 젤라또까지 한 동선.</p></div>
+      <div class="opt alt"><span class="badge">대안</span><b>형제칼국수 <small>장칼국수</small></b>
+        <p>강릉 3대 장칼국수로 꼽히는 집. <b>일요일 장칼국수를 토요일로 당기고</b> 일요일은 시장 간식에 집중하는 것도 방법!</p></div>
+      <div class="opt loc"><span class="badge">로컬</span><b>서지초가뜰 <small>못밥·질상 한상차림</small></b>
+        <p>종갓집 고택에서 모내기 밥상 '못밥'을 그대로 — <b>강릉 사람들이 귀한 손님 모시고 가는 집</b>. 미쉐린 가이드 여행기에도 언급된 조용한 한상(차 15분).</p></div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-head"><span class="em">🦐</span><b>토요일 저녁 — 이번 여행의 메인</b><span>주문진 20분 · 사천 10분</span></div>
+      <div class="opt pick"><span class="badge">1픽</span><b>주문진항 수산시장 <small>모듬회·물회·곰치국</small></b>
+        <p>1층에서 회 떠서 2층 초장집 코스. <b>시장 구경 자체가 아이들에게 볼거리</b>.</p></div>
+      <div class="opt alt"><span class="badge">대안</span><b>장안횟집 (사천진항) <small>물회·섭국</small></b>
+        <p>'또간집'에 나온 사천 물회 명가 — <b>리조트에서 10분</b>이라 주문진보다 가깝고, 배지근한 섭국까지. 줄서는 집이니 저녁 피크 전 도착 추천.</p></div>
+      <div class="opt alt"><span class="badge">대안</span><b>경포·강문 횟집 거리 <small>모듬회·매운탕</small></b>
+        <p>멀리 가기 귀찮은 날은 리조트 앞 횟집 거리에서 도보 해결. 식후 바로 밤바다 산책 코스로 연결.</p></div>
+      <div class="opt loc"><span class="badge">로컬</span><b>사천진항 현지인 횟집 골목 <small>물회·섭국·잡어회</small></b>
+        <p>장안횟집이 유명해지기 전부터 <b>사천 사람들이 다니던 작은 횟집들</b>이 항구 앞에 줄지어 있어요. 이름값 대신 그날 들어온 잡어회 — 줄 서기 싫은 날의 정답.</p></div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-head"><span class="em">☕</span><b>토요일 카페 타임</b><span>안목은 지난 여행에 다녀와서 제외</span></div>
+      <div class="opt pick"><span class="badge">1픽</span><b>테라로사 커피공장 본점 <small>구정면 · 로스터리</small></b>
+        <p>강릉 커피의 상징. 공장형 대형 카페라 <b>빵·공간·커피 모두 수준급</b>이고 아이들 먹을거리도 넉넉. (차 20분)</p></div>
+      <div class="opt alt"><span class="badge">대안</span><b>보헤미안 박이추커피 <small>사천 · 핸드드립</small></b>
+        <p>1세대 바리스타 박이추 선생의 핸드드립. 조용히 커피 자체를 즐기고 싶다면. (사천 방면, 장안횟집과 같은 동선)</p></div>
+      <div class="opt loc"><span class="badge">로컬</span><b>명주동 골목 카페 <small>봉봉방앗간·오월커피</small></b>
+        <p>옛 방앗간과 주택을 고친 <b>강릉 사람들의 골목 카페 동네</b>. 바다뷰 대신 근대 골목 감성 — 관광 카페와 전혀 다른 결이라 어른들 취향이면 오히려 여기가 기억에 남아요.</p></div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-head"><span class="em">🍜</span><b>일요일 점심 — 귀가 전 마무리</b><span>중앙시장 일대</span></div>
+      <div class="opt pick"><span class="badge">1픽</span><b>중앙시장 먹거리 투어 <small>닭강정·오징어순대·고로케</small></b>
+        <p>점심을 시장 간식으로 대체하는 자유 코스. 귀가길 간식 포장까지.</p></div>
+      <div class="opt alt"><span class="badge">대안</span><b>현대장칼국수 <small>장칼국수</small></b>
+        <p>시장 근처 장칼국수 노포. <b>한 그릇 든든히 먹고 출발</b>하고 싶은 날의 정석 마무리.</p></div>
+      <div class="opt alt"><span class="badge">대안</span><b>해성횟집 <small>삼숙이탕</small></b>
+        <p>금요일에 못 갔다면 마지막 기회 — 시장 투어와 같은 골목이라 동선 손해 zero.</p></div>
+      <div class="opt loc"><span class="badge">로컬</span><b>삼교리동치미막국수 <small>동치미막국수</small></b>
+        <p>강릉 사람들의 여름 소울푸드 — 살얼음 동치미 국물에 메밀면. <b>더위 먹은 마지막 날 개운하게 마무리</b>하고 출발하기 좋아요(시내 포남점이 동선상 편리).</p></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ AREA GUIDE ═══════════ -->
+<section id="areas">
+  <span class="kicker">AREA GUIDE</span>
+  <h2>주문진항 & 중앙시장 먹거리 도감</h2>
+  <p class="lead">토요일 저녁(주문진)과 일요일 점심(중앙시장), 두 핵심 스팟에서 헤매지 않도록 이름 있는 집들만 추려 정리했어요.</p>
+  <div class="slots">
+
+    <div class="slot">
+      <div class="slot-head"><span class="em">⚓</span><b>주문진항 — 토요일 저녁</b><span class="area-head-sub">리조트에서 차 20분</span></div>
+      <div class="opt pick"><span class="badge">1픽</span><b>주문진 수산시장 회센터 <small>모듬회·물회</small></b>
+        <p>1층 활어 코너에서 제철 오징어·잡어 골라 떠서 <b>2층 초장집</b>으로. 흥정하는 재미 + 아이들 구경거리까지.</p></div>
+      <div class="opt menu"><span class="badge">물회</span><b>미미네횟집 <small>물회·곰치국</small></b>
+        <p>주문진 물회 상위권 단골 이름. 새콤한 육수에 오징어 듬뿍 — 시장 흥정이 번거로우면 여기서 편하게.</p></div>
+      <div class="opt menu"><span class="badge">국물</span><b>중앙집식당 <small>곰치국·도치알탕</small></b>
+        <p>곰치국 하나로 유명한 노포. 뜨끈하고 시원한 국물이 어른들 해장 겸 저녁으로 그만.</p></div>
+      <div class="opt menu"><span class="badge">국물</span><b>월성식당 <small>곰치국·장치찜</small></b>
+        <p>곰치국과 매콤한 장치찜의 양대 메뉴 — 밥도둑 장치찜은 아이들 밥 반찬으로도 인기.</p></div>
+      <div class="opt menu"><span class="badge">구이</span><b>원조집 <small>생선구이·회</small></b>
+        <p>회를 못 먹는 가족이 있어도 안심 — 두툼한 <b>모둠 생선구이</b>가 대안 메인. 고소한 껍질까지 완벽.</p></div>
+      <div class="opt loc"><span class="badge">로컬</span><b>항구곰치국 <small>곰치국·생선구이</small></b>
+        <p>이름 그대로 항구 앞 곰치국 집. 관광객 줄이 덜해 <b>피크타임 백업</b>으로 좋아요.</p></div>
+    </div>
+
+    <div class="slot">
+      <div class="slot-head"><span class="em">🏮</span><b>강릉 중앙시장 — 일요일 점심</b><span class="area-head-sub">주차 후 도보 투어</span></div>
+      <div class="opt pick"><span class="badge">1픽</span><b>배니닭강정 <small>닭강정·오징어순대</small></b>
+        <p>중앙시장 닭강정의 원조격. <b>매운맛·간장맛 반반</b>에 오징어순대까지 한 집에서 — 포장해서 귀가길 간식으로도.</p></div>
+      <div class="opt menu"><span class="badge">간식</span><b>수제어묵고로케 <small>어묵고로케</small></b>
+        <p>시장 대표 웨이팅 간식. 갓 튀겨 바삭한 고로케 안에 통통한 수제어묵 — <b>줄이 빨리 줄어드니 겁먹지 말 것</b>.</p></div>
+      <div class="opt menu"><span class="badge">간식</span><b>중앙닭강정 <small>닭다리살 강정</small></b>
+        <p>배니 줄이 너무 길면 이쪽 — 닭다리살만 써서 부드러운 스타일로 취향 갈라 먹는 재미.</p></div>
+      <div class="opt menu"><span class="badge">한끼</span><b>해성횟집 <small>삼숙이탕·알탕</small></b>
+        <p>시장 골목의 40년 노포. 간식 말고 <b>제대로 한 끼</b>가 필요하면 얼큰한 삼숙이탕으로.</p></div>
+      <div class="opt menu"><span class="badge">한끼</span><b>현대장칼국수 <small>장칼국수</small></b>
+        <p>시장 근처 장칼국수 노포 — 고추장 베이스 걸쭉한 국물로 든든하게 마무리하고 출발.</p></div>
+      <div class="opt loc"><span class="badge">로컬</span><b>지하 어시장 회 코너 <small>회·대게찜</small></b>
+        <p>시장 지하의 현지인 회 코너. 관광 동선에서 살짝 벗어나 <b>가성비 모둠회</b>를 마지막으로 포장하기 좋아요.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ TIPS ═══════════ -->
+<section id="tips">
+  <span class="kicker">TIPS & PACKING</span>
+  <h2>알고 가면 두 배 편한 꿀팁</h2>
+  <div class="tips">
+    <div class="tip"><span class="ico">📱</span><b>웨이팅은 원격으로 끝내기</b><p>엄지네·동화가든은 테이블링 앱 원격 줄서기 지원. 이동 중 미리 걸어두면 도착하자마자 입장 각.</p></div>
+    <div class="tip"><span class="ico">🌊</span><b>여름 바다 마지막 주말</b><p>강릉 해수욕장은 8월 말 폐장 — 이 주말이 사실상 올여름 마지막 입수 기회. 안전요원 운영시간(주간) 내에 물놀이 마치기.</p></div>
+    <div class="tip"><span class="ico">🏊</span><b>수영장은 오전이 황금시간</b><p>토요일 리조트 풀은 오후에 붐벼요. 아침 먹고 10시쯤 바로 입장하면 쾌적. 수영모 규정이 있을 수 있으니 가족 수만큼 챙기기.</p></div>
+    <div class="tip"><span class="ico">⚡</span><b>충전 전략 (모델Y)</b><p>출발 전 완충 → 토요일 외출 동선(주문진 or 시내)에 급속충전 한 번 끼워넣기 → 일요일 아침 잔량 확인. 왕복 460km이므로 한 번이면 충분.</p></div>
+    <div class="tip"><span class="ico">🚗</span><b>정체 피하는 타이밍</b><p>금요일은 3시 반 이전 출발이 유리, 일요일 귀경은 13시대 출발이 스위트스팟. 늦어지면 저녁 먹고 8시 이후 출발이 차라리 나아요.</p></div>
+    <div class="tip"><span class="ico">🎒</span><b>중1·초5 맞춤 포인트</b><p>둘 다 스스로 노는 나이 — 물놀이 후 각자 시간(폰·책) 존중해 주면 여행 만족도 급상승. 보드게임 하나면 밤 시간 순삭.</p></div>
+  </div>
+
+  <div class="checks">
+    <h3>✅ 짐 체크리스트 <small style="font-weight:500;color:var(--muted)">(탭해서 체크!)</small></h3>
+    <div class="grid2">
+      <label><input type="checkbox"><span>수영복 4벌 + 수영모 + 물안경</span></label>
+      <label><input type="checkbox"><span>튜브·아쿠아슈즈 (해변용)</span></label>
+      <label><input type="checkbox"><span>선크림·알로에젤·모자</span></label>
+      <label><input type="checkbox"><span>비치타월 & 방수팩</span></label>
+      <label><input type="checkbox"><span>여벌 옷 (물놀이 2회 기준 넉넉히)</span></label>
+      <label><input type="checkbox"><span>상비약 (멀미약·해열제·밴드)</span></label>
+      <label><input type="checkbox"><span>보드게임·카드게임</span></label>
+      <label><input type="checkbox"><span>차량 충전 케이블 & 보조배터리</span></label>
+      <label><input type="checkbox"><span>지퍼백 (젖은 옷·모래 소지품용)</span></label>
+      <label><input type="checkbox"><span>아이들 간식 & 물티슈</span></label>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <b>강릉 2박 3일 가족여행 플랜</b> · 2026. 8. 28 – 8. 30<br>
+  라카이샌드파인 리조트 · 여유롭게, 맛있게, 바다처럼 🌊
+</footer>
+
+<script>
+/* ═══════════ ROUTE PLANNER ENGINE ═══════════ */
+(function(){
+  // ---- places: real-ish coords for distance calc + map projection ----
+  const P = {
+    resort:  {n:'라카이샌드파인', lat:37.7896, lng:128.9163, anchor:true, lx:8, ly:-12},
+    suwon:   {n:'수원(집)', fixed:[26,542], lx:14, ly:-12},
+    eomji:   {n:'엄지네포장마차', lat:37.7716, lng:128.9004, lx:-54, ly:4},
+    haeseong:{n:'해성횟집', lat:37.7549, lng:128.8968, lx:40, ly:14},
+    gamja:   {n:'감자적1번지', lat:37.7580, lng:128.8990, lx:46, ly:-4},
+    gyeongpo:{n:'경포 회센터(포장)', lat:37.7950, lng:128.9110, lx:-30, ly:-13},
+    donghwa: {n:'동화가든', lat:37.7947, lng:128.9046, lx:-40, ly:-8},
+    tobagi:  {n:'토박이할머니순두부', lat:37.7910, lng:128.9060, lx:-70, ly:4},
+    yeongok: {n:'연곡꾹저구탕', lat:37.8550, lng:128.8740, lx:-52, ly:4},
+    chodang: {n:'초당두부마을', lat:37.7900, lng:128.9080, lx:-52, ly:16},
+    hyungje: {n:'형제칼국수', lat:37.7570, lng:128.8960, lx:-46, ly:0},
+    seoji:   {n:'서지초가뜰', lat:37.7840, lng:128.8730, lx:-46, ly:0},
+    terarosa:{n:'테라로사 커피공장', lat:37.7030, lng:128.8850, ly:20},
+    bohemian:{n:'보헤미안 박이추', lat:37.8450, lng:128.8760, lx:-58, ly:14},
+    myeongju:{n:'명주동 골목카페', lat:37.7520, lng:128.8920, lx:-56, ly:10},
+    jumunjin:{n:'주문진항 수산시장', lat:37.8926, lng:128.8309, lx:6, ly:-13},
+    mimine:  {n:'미미네횟집', lat:37.8900, lng:128.8330, lx:46, ly:10},
+    wonjo:   {n:'원조집(생선구이)', lat:37.8910, lng:128.8320, lx:-56, ly:8},
+    jangan:  {n:'장안횟집(사천진)', lat:37.8409, lng:128.8779, lx:-60, ly:-8},
+    gangmun: {n:'강문 횟집거리(도보)', lat:37.7905, lng:128.9170, walk:true, lx:-20, ly:22},
+    market:  {n:'강릉 중앙시장', lat:37.7546, lng:128.8973, ly:22},
+    hyundai: {n:'현대장칼국수', lat:37.7550, lng:128.8960, lx:-52, ly:14},
+    samgyori:{n:'삼교리동치미막국수', lat:37.7710, lng:128.9050, lx:-72, ly:6}
+  };
+  // ---- meal options: cost(4인), wait(방문 시간대 기준), booking ----
+  const OPT = {
+    fri_dinner:{label:'금 저녁 <span>19:00</span>', opts:{
+      eomji:{cost:70000,wait:'60~90분',how:'테이블링 원격 줄서기(진입 30분 전 필수)'},
+      haeseong:{cost:60000,wait:'10~20분',how:'전화 문의 가능'},
+      gamja:{cost:45000,wait:'10~20분',how:'현장 대기'},
+      gyeongpo:{cost:80000,wait:'포장 대기 ~20분',how:'전화 주문 후 픽업 → 객실 식사'}}},
+    sat_break:{label:'토 아침 <span>08:00</span>', opts:{
+      donghwa:{cost:50000,wait:'오픈 직후 10~20분 (9시 이후 60분+)',how:'테이블링 웨이팅'},
+      tobagi:{cost:45000,wait:'~10분',how:'현장 대기'},
+      yeongok:{cost:50000,wait:'거의 없음',how:'전화로 영업시간 확인 권장'}}},
+    sat_lunch:{label:'토 점심 <span>12:30</span>', opts:{
+      chodang:{cost:66000,wait:'20~30분',how:'매장별 현장 대기'},
+      hyungje:{cost:40000,wait:'30~40분',how:'현장 대기만 (예약 불가)'},
+      seoji:{cost:100000,wait:'거의 없음',how:'전화 예약 권장(한상 준비)'}}},
+    sat_cafe:{label:'토 카페 <span>16:30</span>', opts:{
+      terarosa:{cost:30000,wait:'주문 줄 ~10분',how:'예약 불필요'},
+      bohemian:{cost:25000,wait:'주말 20~30분',how:'현장 대기'},
+      myeongju:{cost:25000,wait:'거의 없음',how:'현장'}}},
+    sat_dinner:{label:'토 저녁 <span>18:30</span>', opts:{
+      jumunjin:{cost:120000,wait:'초장집 10~20분',how:'예약 불필요(초장집 전화 가능)'},
+      mimine:{cost:90000,wait:'20~40분',how:'전화 문의'},
+      wonjo:{cost:80000,wait:'20~30분',how:'전화 문의'},
+      jangan:{cost:100000,wait:'40~60분',how:'현장 웨이팅 — 피크 전 도착 권장'},
+      gangmun:{cost:110000,wait:'10~20분',how:'전화 예약 가능 · 도보 이동'}}},
+    sun_lunch:{label:'일 점심 <span>11:30</span>', opts:{
+      market:{cost:50000,wait:'가게별 10~30분',how:'현장 (배니닭강정·어묵고로케)'},
+      hyundai:{cost:40000,wait:'20~30분',how:'현장 대기'},
+      samgyori:{cost:45000,wait:'10~20분',how:'현장 (포남점 추천)'},
+      haeseong:{cost:60000,wait:'10~20분',how:'전화 문의'}}}
+  };
+  const DAYS = {
+    d1:{title:'Day 1 · 금', slots:['fri_dinner'],
+        route:s=>['suwon', s.fri_dinner, 'resort'],
+        fixed:[{a:'suwon',b:'first',km:228,min:170,label:'수원 → 강릉 (영동선·금 오후 정체 포함)'}]},
+    d2:{title:'Day 2 · 토', slots:['sat_break','sat_lunch','sat_cafe','sat_dinner'],
+        route:s=>['resort', s.sat_break, 'resort', s.sat_lunch, s.sat_cafe, s.sat_dinner, 'resort'],
+        note:'아침 식사 후 리조트로 돌아와 인피니티풀·해변 물놀이(이동 없음), 오후에 점심→카페→저녁 순회'},
+    d3:{title:'Day 3 · 일', slots:['sun_lunch'],
+        route:s=>['resort', s.sun_lunch, 'suwon'],
+        fixed:[{a:'last',b:'suwon',km:232,min:175,label:'강릉 → 수원 (일 오후·휴게소 1회 포함)'}]}
+  };
+  // ---- state ----
+  const sel = {fri_dinner:'eomji', sat_break:'donghwa', sat_lunch:'chodang',
+               sat_cafe:'terarosa', sat_dinner:'jumunjin', sun_lunch:'market'};
+  // ---- geometry ----
+  const LAT=[37.695,37.905], LNG=[128.815,128.965];
+  const proj=p=>p.fixed?p.fixed:[ (p.lng-LNG[0])/(LNG[1]-LNG[0])*340+45, (LAT[1]-p.lat)/(LAT[1]-LAT[0])*490+35 ];
+  function kmBetween(a,b){
+    const R=6371,dr=Math.PI/180;
+    const dLat=(b.lat-a.lat)*dr, dLng=(b.lng-a.lng)*dr;
+    const h=Math.sin(dLat/2)**2+Math.cos(a.lat*dr)*Math.cos(b.lat*dr)*Math.sin(dLng/2)**2;
+    return 2*R*Math.asin(Math.sqrt(h))*1.35; // 도로 우회계수
+  }
+  function legCalc(ka,kb){
+    const a=P[ka],b=P[kb];
+    if(P[kb].walk||P[ka].walk) return {km:0.3,min:5,walk:true};
+    const km=kmBetween(a,b);
+    const speed=km>12?55:32; // km/h
+    return {km:Math.max(1,Math.round(km)),min:Math.max(4,Math.round(km/speed*60))};
+  }
+  // ---- map render ----
+  const NS='http://www.w3.org/2000/svg';
+  function el(t,at,txt){const e=document.createElementNS(NS,t);for(const k in at)e.setAttribute(k,at[k]);if(txt!=null)e.textContent=txt;return e}
+  function drawMap(dayKey){
+    const svg=document.getElementById('map-'+dayKey);
+    svg.innerHTML='';
+    // land & sea
+    svg.appendChild(el('rect',{width:420,height:560,fill:'#f2ecdd'}));
+    const coast='M 118 20 C 150 90 170 150 205 205 C 240 260 300 300 322 330 C 345 362 352 420 356 470 C 359 505 362 535 364 560 L 420 560 L 420 20 Z';
+    svg.appendChild(el('path',{d:coast,fill:'#bfe0ec'}));
+    svg.appendChild(el('path',{d:coast,fill:'none',stroke:'#8ec6da','stroke-width':3,opacity:.7}));
+    [[385,80],[395,200],[400,340],[398,470]].forEach(c=>{
+      svg.appendChild(el('path',{d:`M ${c[0]-14} ${c[1]} q 7 -5 14 0 q 7 5 14 0`,stroke:'#eaf6fa','stroke-width':2.5,fill:'none','stroke-linecap':'round'}));});
+    '동해바다'.split('').forEach((ch,i)=>svg.appendChild(el('text',{x:396,y:52+i*18,'text-anchor':'middle','font-size':13,'font-weight':800,fill:'#5c9ab0'},ch)));
+    // 경포호
+    svg.appendChild(el('ellipse',{cx:270,cy:290,rx:26,ry:13,fill:'#cfe8f0',stroke:'#9fcfdd','stroke-width':1.5}));
+    svg.appendChild(el('text',{x:270,y:279,'text-anchor':'middle','font-size':8.5,fill:'#5c9ab0'},'경포호'));
+    // 7번국도 hint
+    svg.appendChild(el('path',{d:'M 150 30 C 185 110 215 180 250 250 C 280 310 268 380 250 450 C 242 485 238 520 236 555',stroke:'#e4d9c2','stroke-width':6,fill:'none','stroke-linecap':'round',opacity:.8}));
+    // highway from suwon (dashed grey, decorative)
+    svg.appendChild(el('path',{d:'M 30 534 C 90 505 150 480 210 452',stroke:'#d8cbb2','stroke-width':5,fill:'none','stroke-dasharray':'2 7','stroke-linecap':'round'}));
+    // route
+    const day=DAYS[dayKey], stops=day.route(sel);
+    let pts=stops.map(k=>proj(P[k]));
+    const path=pts.map((p,i)=>(i?'L':'M')+p[0]+' '+p[1]).join(' ');
+    svg.appendChild(el('path',{d:path,fill:'none',stroke:'#ff6b57','stroke-width':3.5,'stroke-linecap':'round','stroke-linejoin':'round','stroke-dasharray':'7 6',opacity:.95}));
+    // leg labels (skip fixed long legs' km text position for suwon: put near midpoint)
+    for(let i=0;i<stops.length-1;i++){
+      const a=stops[i],b=stops[i+1]; if(a===b) continue;
+      let lab;
+      if(a==='suwon'||b==='suwon'){const f=day.fixed[0];lab=f.km+'km·'+Math.floor(f.min/60)+'h'+(f.min%60)+'m';}
+      else {const L=legCalc(a,b);lab=L.walk?'도보 5분':L.km+'km·'+L.min+'분';}
+      const m=[(pts[i][0]+pts[i+1][0])/2,(pts[i][1]+pts[i+1][1])/2];
+      const t=el('text',{x:m[0],y:m[1]-6,'text-anchor':'middle','font-size':10,'font-weight':800,
+        fill:'#c93d2b',stroke:'#fff','stroke-width':3,'paint-order':'stroke'},lab);
+      svg.appendChild(t);
+    }
+    // nodes: all referenced places for this day (stops unique)
+    const seen=new Set();
+    stops.forEach((k,idx)=>{
+      if(seen.has(k))return; seen.add(k);
+      const p=proj(P[k]);
+      const isAnchor=P[k].anchor||k==='suwon';
+      svg.appendChild(el('circle',{cx:p[0],cy:p[1],r:isAnchor?8:6,fill:isAnchor?'#0f3b57':'#ff6b57',stroke:'#fff','stroke-width':2.5}));
+      const lx=P[k].lx||0, ly=P[k].ly==null?20:P[k].ly;
+      const t=el('text',{x:p[0]+lx,y:p[1]+ly,'text-anchor':lx<0?'end':(lx>6?'start':'middle'),
+        'font-size':10.5,'font-weight':800,fill:'#20303c',stroke:'#fdf8f0','stroke-width':3,'paint-order':'stroke'},P[k].n);
+      svg.appendChild(t);
+    });
+    // start flag
+    const s0=proj(P[stops[0]]);
+    svg.appendChild(el('text',{x:s0[0],y:s0[1]-12,'text-anchor':'middle','font-size':12},'🚩'));
+  }
+  // ---- selectors ----
+  function drawSelectors(dayKey){
+    const selBox=document.getElementById('sel-'+dayKey);
+    selBox.innerHTML='';
+    DAYS[dayKey].slots.forEach(slotKey=>{
+      const slot=OPT[slotKey];
+      const d=document.createElement('div'); d.className='pslot';
+      const chips=Object.keys(slot.opts).map(k=>
+        `<button data-slot="${slotKey}" data-opt="${k}" class="${sel[slotKey]===k?'sel':''}">${P[k].n}</button>`).join('');
+      const o=slot.opts[sel[slotKey]];
+      d.innerHTML=`<div class="pl">🍽️ ${slot.label}</div><div class="pchips">${chips}</div>
+        <div class="pinfo">⏳ 예상 대기 <b>${o.wait}</b> · 📱 ${o.how} · 💳 4인 약 <b>${(o.cost/10000).toLocaleString()}만원</b></div>`;
+      selBox.appendChild(d);
+    });
+    if(DAYS[dayKey].note){
+      const n=document.createElement('div'); n.className='pinfo'; n.style.marginTop='0';
+      n.innerHTML='🏊 '+DAYS[dayKey].note; selBox.appendChild(n);
+    }
+  }
+  // ---- legs & totals ----
+  function dayLegs(dayKey){
+    const day=DAYS[dayKey], stops=day.route(sel), legs=[];
+    for(let i=0;i<stops.length-1;i++){
+      const a=stops[i],b=stops[i+1]; if(a===b)continue;
+      if(a==='suwon'||b==='suwon'){const f=day.fixed[0];legs.push({txt:f.label,km:f.km,min:f.min});}
+      else{const L=legCalc(a,b);legs.push({txt:P[a].n+' → '+P[b].n,km:L.km,min:L.min,walk:L.walk});}
+    }
+    return legs;
+  }
+  function drawLegs(dayKey){
+    const box=document.getElementById('legs-'+dayKey), legs=dayLegs(dayKey);
+    let km=0,min=0;
+    const rows=legs.map(L=>{km+=L.km;min+=L.min;
+      return `<div class="leg"><span class="lr">${L.txt}</span><span class="lv">${L.walk?'도보 5분':L.km+'km · '+fmt(L.min)}</span></div>`}).join('');
+    box.innerHTML=`<h4>🛣️ ${DAYS[dayKey].title} 이동 구간</h4>${rows}
+      <div class="dsum">이날 운전 합계 — 약 ${Math.round(km)}km · ${fmt(Math.round(min))}</div>`;
+  }
+  const fmt=m=>m>=60?Math.floor(m/60)+'시간 '+(m%60?m%60+'분':''):m+'분';
+  // ---- budget ----
+  const FIX={toll:22000,charge:30000,snack:45000};
+  let stayMan=80;
+  function drawBudget(){
+    let meals=0; Object.keys(sel).forEach(k=>meals+=OPT[k].opts[sel[k]].cost);
+    let km=0,min=0; ['d1','d2','d3'].forEach(d=>dayLegs(d).forEach(L=>{km+=L.km;min+=L.min}));
+    const total=meals+FIX.toll+FIX.charge+FIX.snack+stayMan*10000;
+    const W=v=>(v/10000).toLocaleString(undefined,{maximumFractionDigits:1});
+    document.getElementById('brows').innerHTML=`
+      <div class="brow stay"><span>🏨 숙박 (라카이샌드파인 2박)</span><b><input id="stayIn" type="number" min="0" value="${stayMan}"> 만원</b></div>
+      <div class="brow"><span>🍽️ 식사 6끼 (선택 기준·4인)</span><b>약 ${W(meals)}만원</b></div>
+      <div class="brow"><span>🍿 휴게소·시장 간식·주전부리</span><b>약 ${W(FIX.snack)}만원</b></div>
+      <div class="brow"><span>🛣️ 고속도로 통행료 (왕복)</span><b>약 ${W(FIX.toll)}만원</b></div>
+      <div class="brow"><span>⚡ 모델Y 충전 (왕복+현지)</span><b>약 ${W(FIX.charge)}만원</b></div>
+      <div class="brow total"><span>💰 예상 총 비용</span><b>약 ${W(total)}만원</b></div>
+      <div class="brow total"><span>🚗 3일 총 운전</span><b>약 ${Math.round(km)}km · ${fmt(Math.round(min))}</b></div>`;
+    const inp=document.getElementById('stayIn');
+    inp.addEventListener('change',()=>{stayMan=Math.max(0,+inp.value||0);drawBudget();});
+  }
+  function refresh(){['d1','d2','d3'].forEach(d=>{drawMap(d);drawSelectors(d);drawLegs(d);});drawBudget();}
+  // chip clicks via delegation (survives re-render)
+  document.getElementById('planner').addEventListener('click',e=>{
+    const b=e.target.closest('.pchips button'); if(!b)return;
+    sel[b.dataset.slot]=b.dataset.opt; refresh();
+  });
+  refresh();
+})();
+
+  // active nav highlight
+  const links=[...document.querySelectorAll('#jumpnav a[href^="#"]')];
+  const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        links.forEach(l=>l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id));
+      }
+    });
+  },{rootMargin:'-40% 0px -55% 0px'});
+  secs.forEach(s=>s&&io.observe(s));
+</script>
+</body>
+</html>
